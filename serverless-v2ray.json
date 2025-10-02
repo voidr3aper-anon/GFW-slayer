@@ -199,7 +199,7 @@
       "stats": {}
     },
     {
-      "remarks": "ATOMIC-GLOBAL",
+      "remarks": "ATOMIC-GLOBAL-Android/windows-only",
       "log": {
         "loglevel": "none",
         "access": "",
@@ -397,9 +397,9 @@
       "stats": {}
     },
     {
-      "remarks": "ATOMIC-Xhttp",
+     "remarks": "ATOMIC-XhTTP-new-era",
       "log": {
-        "loglevel": "warning",
+        "loglevel": "debug",
         "access": "",
         "error": "",
         "dnsLog": false
@@ -408,21 +408,18 @@
         "queryStrategy": "UseIPv4",
         "tag": "dns",
         "hosts": {
-           "www.kirtokhamenei.ir": ["8.8.8.8"],
-            "youtube.com":["142.250.200.174"],
-            "geosite:google": "google.com",
-            "domain:youtube.com": ["google.com"],
-            "cloudflare-dns.com": [
-                "172.67.73.38",
-                "104.19.155.92",
-                "172.67.73.163",
-                "104.18.155.42",
-                "104.16.124.175",
-                "104.16.248.249",
-                "104.16.249.249",
-                "104.26.13.8"]
+          "www.kirtokhamenei.ir": [
+            "8.8.8.8"
+          ]
         },
-        "servers": ["8.8.8.8","8.8.4.4"]
+        "servers": [
+          "78.157.42.100",
+          "78.157.42.101",
+          "8.8.8.8",
+          "104.21.83.62",
+          "172.67.214.246",
+          "185.236.104.104"
+        ]
       },
       "inbounds": [
         {
@@ -435,7 +432,10 @@
             "userLevel": 8
           },
           "sniffing": {
-            "destOverride": ["http","tls"],
+            "destOverride": [
+              "http",
+              "tls"
+            ],
             "enabled": true
           },
           "tag": "socks-in"
@@ -444,9 +444,14 @@
           "listen": "127.0.0.1",
           "port": 10809,
           "protocol": "http",
-          "settings": { "userLevel": 8 },
+          "settings": {
+            "userLevel": 8
+          },
           "sniffing": {
-            "destOverride": ["http","tls"],
+            "destOverride": [
+              "http",
+              "tls"
+            ],
             "enabled": true
           },
           "tag": "http-in"
@@ -472,12 +477,11 @@
               "length": "10-80",
               "interval": "10-40"
             }
-          },
+         },
           "streamSettings": {
             "sockopt": {
               "tcpNoDelay": true,
               "tcpKeepAliveIdle": 100,
-              "mark": 255,
               "domainStrategy": "UseIP"
             }
           },
@@ -508,25 +512,27 @@
             "security": "tls",
             "tlsSettings": {
               "allowInsecure": false,
-              "alpn": ["h3,h2"],
+              "alpn": [
+                "h3,h2,http/1.1"
+              ],
               "fingerprint": "randomized",
               "serverName": "www.google.com",
               "show": false
             },
             "xhttpSettings": {
-              "host": "google.com",
+              "host": "www.google.com",
               "path": "/",
               "mode": "auto",
               "extra": {
-                "xPaddingBytes": "100-1000",
+                "xPaddingBytes": "96-254",
                 "noGRPCHeader": false,
                 "noSSEHeader": false,
                 "xmux": {
-                  "maxConcurrency": "16-64",
+                  "maxConcurrency": "16-128",
                   "maxConnections": 0,
                   "cMaxReuseTimes": 0,
-                  "hMaxRequestTimes": "600-900",
-                  "hMaxReusableSecs": "1800-3000",
+                  "hMaxRequestTimes": "300-1000",
+                  "hMaxReusableSecs": "1200-5000",
                   "hKeepAlivePeriod": 0
                 }
               }
@@ -537,10 +543,17 @@
             "enabled": false
           }
         },
-        { "protocol": "dns", "tag": "dns-out" },
+        {
+          "protocol": "dns",
+          "tag": "dns-out"
+        },
         {
           "protocol": "blackhole",
-          "settings": { "response": { "type": "http" } },
+          "settings": {
+            "response": {
+              "type": "http"
+            }
+          },
           "tag": "block"
         },
         {
@@ -548,7 +561,10 @@
           "tag": "dummy",
           "settings": {
             "servers": [
-              { "address": "127.0.0.1", "port": 10808 }
+              {
+                "address": "127.0.0.1",
+                "port": 10808
+              }
             ]
           }
         }
@@ -571,18 +587,26 @@
         "domainStrategy": "IPIfNonMatch",
         "rules": [
           {
-            "inboundTag": ["dns-in"],
+            "inboundTag": [
+              "dns-in"
+            ],
             "outboundTag": "dns-out",
             "type": "field"
           },
           {
-            "inboundTag": ["socks-in","http-in"],
+            "inboundTag": [
+              "socks-in",
+              "http-in"
+            ],
             "port": 53,
             "outboundTag": "dns-out",
             "type": "field"
           },
           {
-            "inboundTag": ["socks-in","http-in"],
+            "inboundTag": [
+              "socks-in",
+              "http-in"
+            ],
             "port": "0-65535",
             "outboundTag": "fragment-out",
             "type": "field",
