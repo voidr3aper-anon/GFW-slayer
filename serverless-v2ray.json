@@ -2,7 +2,7 @@
     {
       "remarks": "Atomic-IR",
       "log": {
-        "loglevel": "none",
+        "loglevel": "none", // Change this to  debug if there is any problem
         "access": "",
         "error": "",
         "dnsLog": false
@@ -201,7 +201,7 @@
     {
       "remarks": "ATOMIC-GLOBAL-Android/windows-only",
       "log": {
-        "loglevel": "none",
+        "loglevel": "none", // Change this to  debug if there is any problem
         "access": "",
         "error": "",
         "dnsLog": false
@@ -399,7 +399,7 @@
     {
      "remarks": "ATOMIC-XhTTP-new-era",
       "log": {
-        "loglevel": "warning",
+        "loglevel": "none",// Change this to  debug if there is any problem
         "access": "",
         "error": "",
         "dnsLog": false
@@ -629,7 +629,7 @@
     {
       "remarks": "ATOMIC-XhTTP-DOH",
       "log": {
-        "loglevel": "warning",
+        "loglevel": "none", // Change this to  debug if there is any problem
         "access": "",
         "error": "",
         "dnsLog": false
@@ -860,7 +860,7 @@
     {
   "remarks": "ATOMIC-Force",
   "log": {
-    "loglevel": "warning",
+    "loglevel": "none", // Change this to  debug if there is any problem
     "access": "",
     "error": "",
     "dnsLog": false
