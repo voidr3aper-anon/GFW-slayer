@@ -399,7 +399,7 @@
     {
      "remarks": "ATOMIC-XhTTP-new-era",
       "log": {
-        "loglevel": "debug",
+        "loglevel": "warning",
         "access": "",
         "error": "",
         "dnsLog": false
@@ -629,7 +629,7 @@
     {
       "remarks": "ATOMIC-XhTTP-DOH",
       "log": {
-        "loglevel": "debug",
+        "loglevel": "warning",
         "access": "",
         "error": "",
         "dnsLog": false
@@ -860,7 +860,7 @@
     {
   "remarks": "ATOMIC-Force",
   "log": {
-    "loglevel": "debug",
+    "loglevel": "warning",
     "access": "",
     "error": "",
     "dnsLog": false
