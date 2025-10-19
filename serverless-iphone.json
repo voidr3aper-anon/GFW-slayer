@@ -1,6 +1,6 @@
 [
     {
-        "remarks": "ATOMIC-iran",
+        "remarks": "ATOMIC-iphone",
         "log": {
             "loglevel": "none",
             "access": "",
@@ -249,7 +249,7 @@
         "stats": {}
     },
     {
-        "remarks": "ATOMIC-iran-DOH",
+        "remarks": "ATOMIC-iphone-DOH",
         "log": {
             "loglevel": "none",
             "access": "",
