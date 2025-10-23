@@ -10,6 +10,11 @@
         "dns": {
             "queryStrategy": "UseIPv4",
             "tag": "dns",
+            "unexpectedIPs": [
+    		"10.10.34.34",
+    		"10.10.34.35",
+    		"10.10.34.36"
+    	    ],
             "hosts": {
                 "www.versesh3.ir": [
                     "8.8.8.8"
@@ -226,6 +231,11 @@
         "dns": {
             "queryStrategy": "UseIPv4",
             "tag": "dns",
+            "unexpectedIPs": [
+    		"10.10.34.34",
+    		"10.10.34.35",
+    		"10.10.34.36"
+    	    ],
             "hosts": {
                 "www.kirtokhamenei.ir": [
                     "8.8.8.8"
@@ -441,6 +451,11 @@
         "dns": {
             "queryStrategy": "UseIPv4",
             "tag": "dns",
+            "unexpectedIPs": [
+    		"10.10.34.34",
+    		"10.10.34.35",
+    		"10.10.34.36"
+    	    ],
             "hosts": {
                 "www.kirtokhamenei.ir": [
                     "8.8.8.8"
@@ -671,6 +686,11 @@
         "dns": {
             "queryStrategy": "UseIPv4",
             "tag": "dns",
+            "unexpectedIPs": [
+    		"10.10.34.34",
+    		"10.10.34.35",
+    		"10.10.34.36"
+    	    ],
             "hosts": {
                 "www.kirtokhamenei.ir": [
                     "8.8.8.8"
