@@ -429,7 +429,7 @@ Issues and feature requests? [Open an issue here](https://github.com/voidr3aper-
 
 <div align="center">
 
-Built  by **void** ([@voidr3aper-anon](https://github.com/voidr3aper-anon))
+Built by **void** ([@voidr3aper-anon](https://github.com/voidr3aper-anon))
 
 For questions or support, reach out via [GitHub Issues](https://github.com/voidr3aper-anon/GFW-slayer/issues)
 
