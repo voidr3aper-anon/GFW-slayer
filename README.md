@@ -1,7 +1,7 @@
 # GFW-Slayer
 
 <p align="center">
-  <img src="https://github.com/voidr3aper-anon/GFW-slaye/blob/main/Logo.png" width="350" />
+  <img src="https://github.com/voidr3aper-anon/GFW-slayer/blob/main/Logo.png" width="350" />
 </p>
 
 Welcome to **GFW-Slayer**, a collection of serverless configurations designed to provide unrestricted access to the internet. Built by **void** (GitHub: @voidr3aper-anon), this repo empowers users in censored regions like china , Iran and Russia to bypass firewalls, sanctions, and restrictions. Whether you're facing blocks on AI tools like Grok or general internet throttling, these configs act as a powerful weapon against censorship, ensuring freedom of information and seamless connectivity.
