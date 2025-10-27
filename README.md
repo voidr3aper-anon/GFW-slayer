@@ -27,8 +27,14 @@ These configs are designed for V2Ray-compatible clients (e.g., V2RayNG on Androi
 
 2. **Add Subscription Links**:
    In your V2Ray app, go to the subscription section and add one or both of these URLs:
-   - **Global V2Ray Configs**: https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-v2ray.json
-   - **Iran-Friendly Configs**: https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-iran-freindly.json
+   - **Global V2Ray Configs**:
+     ```
+     https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-v2ray.json
+     ```
+   - **Iran-Friendly Configs**:
+     ```
+      https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-iran-freindly.json
+     ```
    
    These links point to JSON arrays of configurations. Your app will import multiple profiles (e.g., "ATOMIC-IR", "ATOMIC-GLOBAL-Android/windows-only", etc.) for you to select from.
 
@@ -70,7 +76,8 @@ To maximize your ability to bypass censorship and enhance privacy, you can confi
      ```
      https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-iran-freindly.json
      ```
-     and others the same (just change the iran to youre country  like china )
+     **and others the same ( just change the iran to youre country  like china )**
+
    - Select a profile (e.g., "ATOMIC-iran" or "ATOMIC-XhTTP-DOH") and connect.
    - Ensure your V2Ray client is set to **SOCKS** or **HTTP** proxy mode:
      - In V2RayNG: Go to **Settings** > **SOCKS Proxy** or **HTTP Proxy** and note the local proxy address (e.g., `127.0.0.1:10808` for SOCKS or `127.0.0.1:10809` for HTTP).
@@ -78,7 +85,7 @@ To maximize your ability to bypass censorship and enhance privacy, you can confi
      - In Shadowrocket: Enable **Global Proxy** and select the SOCKS or HTTP profile.
    - Verify that V2Ray is running and the proxy is active (test by browsing a blocked site).
 
-2. **Install and Configure a Secondary VPN**:
+1. **Install and Configure a Secondary VPN**:
    - Choose a VPN service that supports SOCKS5 or HTTP proxy input (e.g., NordVPN, ProtonVPN, or any VPN with manual proxy settings). Alternatively, use another V2Ray or Shadowsocks instance.
    - Install the VPN app on your device or configure it manually if it supports custom proxy settings.
    - In the VPN's settings, configure it to use the V2Ray proxy as its upstream proxy:
@@ -87,14 +94,14 @@ To maximize your ability to bypass censorship and enhance privacy, you can confi
      - Example for NordVPN (if supported): Go to **Settings** > **Advanced** > **Custom Proxy** and enter the V2Ray SOCKS/HTTP details.
    - If the VPN doesn't support custom proxy input, you can use tools like **Proxifier** (Windows/macOS) or **ProxyCap** to route the VPN's traffic through V2Ray's proxy.
 
-3. **Chain the Connection**:
+2. **Chain the Connection**:
    - Start V2Ray first and ensure it's connected.
    - Launch the secondary VPN and connect through the V2Ray proxy.
    - The connection chain will look like this:  
      `Your Device -> V2Ray (GFW-Slayer Config) -> Secondary VPN -> Internet`
    - This setup routes your traffic through V2Ray's anti-censorship mechanisms first, then through the VPN for additional encryption and IP masking.
 
-4. **Test the Connection**:
+3. **Test the Connection**:
    - Visit a blocked site (e.g., Grok AI or other sanctioned services) to confirm the chain is working.
    - Check your IP address using a site like `whatismyipaddress.com` to ensure it's masked by the secondary VPN.
    - If you encounter issues, verify that:
@@ -102,7 +109,7 @@ To maximize your ability to bypass censorship and enhance privacy, you can confi
      - The secondary VPN supports SOCKS5/HTTP proxy input or is routed correctly via Proxifier/ProxyCap.
      - Firewalls or antivirus software aren't blocking the proxy ports.
 
-5. **Advanced Tips**:
+4. **Advanced Tips**:
    - **Choose the Right Profile**: Use a V2Ray profile with fragmentation (e.g., "ATOMIC-XhTTP-new-era") for better evasion in high-censorship regions.
    - **DNS Security**: Use profiles with DOH (DNS over HTTPS) like "ATOMIC-iran-DOH" or "ATOMIC-XhTTP-DOH" to prevent DNS leaks.
    - **Multiple VPNs**: For extra obfuscation, you can chain multiple VPNs (e.g., V2Ray -> VPN1 -> VPN2), but this may slow your connection.
