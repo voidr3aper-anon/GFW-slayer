@@ -62,8 +62,15 @@ To maximize your ability to bypass censorship and enhance privacy, you can confi
 1. **Set Up V2Ray in Proxy Mode**:
    - Open your V2Ray client (e.g., V2RayNG on Android, V2RayN on Windows, or Shadowrocket on iOS).
    - Import one of the GFW-Slayer subscription links:
-     - Global Configs: `https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-v2ray.json`
-     - Iran-Friendly Configs: `https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-iran-freindly.json`
+     - Global Configs:
+     ```
+     https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-v2ray.json
+     ```
+     - Iran-Friendly Configs: 
+     ```
+     https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-iran-freindly.json
+     ```
+     and others the same (just change the iran to youre country  like china )
    - Select a profile (e.g., "ATOMIC-iran" or "ATOMIC-XhTTP-DOH") and connect.
    - Ensure your V2Ray client is set to **SOCKS** or **HTTP** proxy mode:
      - In V2RayNG: Go to **Settings** > **SOCKS Proxy** or **HTTP Proxy** and note the local proxy address (e.g., `127.0.0.1:10808` for SOCKS or `127.0.0.1:10809` for HTTP).
