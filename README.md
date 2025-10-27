@@ -116,6 +116,108 @@ To maximize your ability to bypass censorship and enhance privacy, you can confi
 By combining GFW-Slayer's V2Ray configs with another VPN, you can create a robust, censorship-resistant connection that keeps you free online!
 
 
+
+## Troubleshooting and Customizing DNS and Blocked IPs
+
+If the GFW-Slayer configurations don't work as expected in your region, you may need to customize the DNS servers and blocked IP addresses to better suit your country's internet environment. The default configurations are optimized for Iran, but you can adapt them for other regions like China, Russia, or elsewhere by following these steps.
+
+### If the Config Doesn't Work
+- **Check Connectivity**: Ensure your V2Ray client is correctly set up and the subscription links are added properly. Test with different profiles (e.g., "ATOMIC-iran", "ATOMIC-china-DOH") to see if one works better.
+- **Network Issues**: Verify that your internet connection is stable and that firewalls or antivirus software aren't blocking V2Ray's ports (e.g., 10808 for SOCKS, 10809 for HTTP, 10853 for DNS).
+- **Censorship Updates**: Censorship methods evolve, so configs may need tweaks. Check the GitHub issues page for community updates or report your issue.
+
+### Customizing DNS Servers
+The default DNS servers in the configs (e.g., `78.157.42.100` for Iran, `114.114.114.114` for China, or `77.88.8.8` for Russia) may not work optimally in your country. To improve performance and bypass DNS-based censorship:
+1. **Find Local DNS Servers**:
+   - Identify reliable, uncensored DNS servers for your country. Examples include:
+     - **Global**: `8.8.8.8` (Google), `1.1.1.1` (Cloudflare)
+     - **China**: `114.114.114.114` (Public DNS), `223.5.5.5` (AliDNS)
+     - **Russia**: `77.88.8.8` (Yandex), `94.250.250.250` (SkyDNS)
+     - **Other Regions**: Search for "public DNS servers [your country]" or use DOH (DNS over HTTPS) for extra security.
+   - For DOH, use servers like `https://1.1.1.1/dns-query` or `https://mozilla.cloudflare-dns.com/dns-query` (included in DOH profiles).
+2. **Edit the Config**:
+   - Download the relevant config file (`serverless-iran-friendly.json`, `serverless-china-friendly.json`, or `serverless-russia-friendly.json`).
+   - Open it in a text editor (e.g., Notepad++ or VS Code).
+   - Locate the `"dns"` > `"servers"` section. For example:
+     ```json
+     "servers": [
+       "78.157.42.100",
+       "78.157.42.101",
+       "8.8.8.8",
+       "104.21.83.62",
+       "172.67.214.246",
+       "185.236.104.104"
+     ]
+
+- Replace the listed servers with your chosen DNS servers. For DOH profiles, update the URLs in the `"servers"` array.
+- Save the file and re-import it into your V2Ray client, or host it on your GitHub repo and update the subscription link.
+
+- **Test DNS**: Use a site like [dnsleaktest.com](https://dnsleaktest.com) to ensure your DNS queries are resolved by your chosen servers and not leaking to your ISP.
+
+### Replacing Blocked IPs
+The configs block specific IPs (`10.10.34.34`, `10.10.34.35`, `10.10.34.36`) that are associated with censorship infrastructure in Iran. These IPs are unlikely to apply in other countries, so you should replace them with IPs relevant to your region's censorship systems:
+
+#### Identify Blocked IPs:
+- Research IPs used by your country's censorship or monitoring systems (e.g., Great Firewall in China, Roskomnadzor in Russia). You may find these in online forums, GitHub issues, or anti-censorship communities.
+- Example: In China, you might block IPs associated with GFW deep packet inspection servers. In Russia, check for Roskomnadzor-related IPs.
+- If unsure, you can remove these IPs to avoid accidental blocking, but this may reduce effectiveness against local censorship.
+
+#### Edit the Config:
+- Open the config file in a text editor.
+- Find the `"routing"` > `"rules"` section with the blocked IPs:
+  ```json
+  {
+    "ip": [
+      "10.10.34.34",
+      "10.10.34.35",
+      "10.10.34.36"
+    ],
+    "outboundTag": "block",
+    "type": "field"
+  }
+- Replace the IPs with those relevant to your country, or remove the rule if no specific IPs need blocking.
+- Save the file and re-import it into your V2Ray client or update your GitHub-hosted file.
+
+#### Test the Changes:
+- Connect to the updated config and try accessing blocked sites. If issues persist, double-check the IPs or consult community resources for your country.
+
+### Example for China
+- **DNS**: Replace with `114.114.114.114` and `223.5.5.5`, or use DOH (`https://1.1.1.1/dns-query`).
+- **Blocked IPs**: Replace `10.10.34.34`, etc., with known GFW-related IPs (research required, as these vary).
+
+### Example for Russia
+- **DNS**: Use `77.88.8.8` (Yandex) or `94.250.250.250` (SkyDNS), or stick with DOH servers.
+- **Blocked IPs**: Replace with IPs linked to Roskomnadzor or blocked services (check community lists).
+
+### Updating Your Repo
+- After editing, upload the modified config to your GitHub repo (`GFW-slayer`) and update the subscription link in your V2Ray client.
+- Share your custom configs with the community via pull requests to help others in your region!
+
+By tailoring DNS and blocked IPs to your country, you can optimize GFW-Slayer for your specific censorship environment. If you need help finding DNS servers or blocked IPs, check GitHub issues or anti-censorship forums for your region.
+
+## Config Details
+This repo includes four main files:
+- **serverless-v2ray.json**: Contains global and advanced configs like "ATOMIC-IR", "ATOMIC-GLOBAL-Android/windows-only", "ATOMIC-XhTTP-new-era", "ATOMIC-XhTTP-DOH", and "ATOMIC-Force". Ideal for worldwide use with strong anti-censorship features.
+- **serverless-iran-freindly.json**: Tailored for Iran, with profiles like "ATOMIC-iran" and "ATOMIC-iran-DOH". Includes Iran-specific routing (e.g., direct access to .ir domains) and DOH for secure DNS.
+- **serverless-china-friendly.json**: Designed for China, with profiles like "ATOMIC-china" and "ATOMIC-china-DOH". Routes .cn domains and IPs directly while fragmenting international traffic.
+- **serverless-russia-friendly.json**: Optimized for Russia, with profiles like "ATOMIC-russia" and "ATOMIC-russia-DOH". Routes .ru domains and IPs directly for better performance.
+
+All configs use VLESS with TLS, fragmentation for evasion, and blackhole routing for blocked IPs. They route local/private IPs directly while fragmenting international traffic.
+
+## Disclaimer
+- This tool is for educational and freedom-of-information purposes only. Use it responsibly and in compliance with local laws.
+- Performance may vary based on your network and location—censorship evolves, so configs may need updates.
+- No warranties provided; test thoroughly.
+- If you're in a high-risk area, combine with other privacy tools like Tor for added security.
+
+## Contributing
+Contributions are welcome! If you have improvements, new configs, or fixes:
+- Fork the repo.
+- Make your changes.
+- Submit a pull request.
+
+Issues and feature requests? Open an issue here.
+
 ## Disclaimer
 - This tool is for freedom-of-information purposes only. Use it responsibly and in compliance with local laws.
 - Performance may vary based on your network and location—censorship evolves, so configs may need updates.
