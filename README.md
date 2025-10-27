@@ -195,7 +195,7 @@ All configs use:
 - **Fragmentation** for evasion of deep packet inspection
 - **Blackhole routing** for blocked IPs
 - **Smart routing**: Routes local/private IPs directly while fragmenting international traffic
-- **Hidden tricks** and optimizations that you'll discover as you use them! 😉
+- **Hidden tricks** and optimizations that you'll discover as you use them! (the firewall eventually feels them too) 😉
 
 ---
 
@@ -404,7 +404,7 @@ The configs block specific IPs (`10.10.34.34`, `10.10.34.35`, `10.10.34.36`) tha
 
 ## ⚠️ Disclaimer
 
-- ⚖️ This tool is for **educational and freedom-of-information purposes only**. Use it responsibly and in compliance with local laws.
+- ⚖️ This tool is for ** freedom-of-information purposes only**. Use it responsibly and in compliance with local laws :).
 - 📊 Performance may vary based on your network and location—censorship evolves, so configs may need updates.
 - 🚫 **No warranties provided**; test thoroughly before relying on these configs.
 - 🔐 If you're in a high-risk area, combine with other privacy tools like Tor for added security.
@@ -429,7 +429,7 @@ Issues and feature requests? [Open an issue here](https://github.com/voidr3aper-
 
 <div align="center">
 
-Built with ❤️ and code by **void** ([@voidr3aper-anon](https://github.com/voidr3aper-anon))
+Built  by **void** ([@voidr3aper-anon](https://github.com/voidr3aper-anon))
 
 For questions or support, reach out via [GitHub Issues](https://github.com/voidr3aper-anon/GFW-slayer/issues)
 
