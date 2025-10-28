@@ -25,12 +25,10 @@
   - [📱 How to Use](#-how-to-use)
     - [1️⃣ Install a V2Ray Client](#1️⃣-install-a-v2ray-client)
     - [2️⃣ Add Subscription Links](#2️⃣-add-subscription-links)
-    - [2️⃣ Add Subscription Links](#2️⃣-add-subscription-links-1)
     - [3️⃣ Select and Connect](#3️⃣-select-and-connect)
-    - [3️⃣ Select and Connect](#3️⃣-select-and-connect-1)
     - [4️⃣ Tips for Best Performance](#4️⃣-tips-for-best-performance)
+  - [🌐 Sites Can You Open](#🌐-What-Sites-Can-You-Open-with-These-Configs?) 
   - [📦 Config Details](#-config-details)
-  - [📦 Config Details](#-config-details-1)
     - [🔐 Technical Details](#-technical-details)
   - [🔧 Professional / Advanced Usage](#-professional--advanced-usage)
     - [🔗 VPN Chaining and Proxy Mode](#-vpn-chaining-and-proxy-mode)
@@ -148,6 +146,49 @@ These links point to JSON arrays of configurations. Your app will import multipl
 - ⚙️ Enable sniffing and domain overriding in your client settings if needed.
 - 🔐 For DNS issues, profiles with DOH (DNS over HTTPS) servers are recommended.
 - 🧩 If you encounter blocks, switch to a profile with fragmentation enabled.
+
+---
+
+
+## 🌐 What Sites Can You Open with These Configs?
+
+Below is a quick guide to what typically works (and what doesn’t) when you use **GFW-Slayer** profiles. Real-world results depend on your network and censorship updates in your country (e.g., Iran/China/Russia).
+
+### 1) Sites that block you by **JA3/JA4 fingerprint**
+**Works.** These configs include **JA3/JA4 jamming**, so websites and AI tools that fingerprint TLS handshakes will usually open.
+- **Examples:** Grok, ChatGPT, OpenAI platform, Claude, some LLM/AI dashboards and  most sites behind cloudflare netowrk.
+- **Why it works:** The profiles randomize/obfuscate TLS fingerprints to evade client-fingerprint bans.
+
+### 2) Sites blocked in your country via **SNI/hostname** filtering
+**Works.** When censorship looks at the domain name (SNI/ESNI) and not hard IP blocks, these profiles tunnel/obfuscate the request.
+- **Examples:** YouTube, X (Twitter), Instagram, Medium, Discord, Reddit, GitHub.
+- **Tip:** If one profile is slow, switch to another (e.g., DOH/fragmentation variants).
+
+### 3) **Google services** (mixed results)
+**Mostly works, with caveats.** Many Google properties open fine, but services that strictly enforce **account country / billing region / source IP** can still be limited.
+- **Usually OK:** Search, Gmail, Drive, Docs, YouTube, Photos, Play (user side).
+- **May be restricted or flaky:** Google Cloud Console (GCP), Google Play **Developer** console, Payments/Merchant Center, some geofenced APIs.
+- **Note for restricted countries (e.g., Iran):** Basic access often works; **developer/billing actions** may still fail due to Google’s policy checks tied to **IP/account country**, not just connectivity.
+
+### 4) Domains with **hard IP blocks**
+**Does NOT work.** If a service is blocked at the **IP level** (null-routed / blackholed / RST at the network edge), tunneling the hostname won’t help.
+- **Examples:** Telegram (frequently enforces wide IP-range blocks in some regions), and other services that drop traffic by destination IP.
+- **Workaround:** Try different exit paths (another VPN hop, different proxy chain, Tor bridges) — but there’s no guarantee.
+
+---
+
+### Quick Reference
+
+| Category                           | Typical Result | Examples                                                  | Notes |
+|-----------------------------------|----------------|-----------------------------------------------------------|-------|
+| JA3/JA4-based blocks              | ✅ Works       | Grok, ChatGPT, AI dashboards                              | Fingerprint jamming bypasses client TLS bans. |
+| SNI/hostname country blocks       | ✅ Works       | YouTube, X, Instagram, Medium, Discord, Reddit, GitHub    | Use DOH/fragmentation profiles if DPI is aggressive. |
+| Google (general)                  | ✅ Mostly OK   | Search, Gmail, Drive, Docs, YouTube                       | Logins & basic use are fine in most cases. |
+| Google (developer/billing)        | ⚠️ Varies      | GCP Console, Play Developer, Payments/Merchant            | Enforced by account/billing region and IP checks. |
+| IP-level domain blocks            | ❌ Not fixed   | Telegram (often), others with hard IP drops               | Needs different exit IP/chain; not guaranteed. |
+
+> **Reminder:** If something stops working, update subscriptions, switch to another profile (e.g., `…-DOH` or fragmentation variants), or chain with another VPN as described in this README.
+
 
 ---
 
