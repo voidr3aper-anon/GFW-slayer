@@ -27,7 +27,7 @@
     - [2️⃣ Add Subscription Links](#2️⃣-add-subscription-links)
     - [3️⃣ Select and Connect](#3️⃣-select-and-connect)
     - [4️⃣ Tips for Best Performance](#4️⃣-tips-for-best-performance)
-  - [🌐 Sites Can You Open](#🌐-What-Sites-Can-You-Open-with-These-Configs) 
+  - [🌐 Sites Can You Open](#-What-Sites-Can-You-Open-with-These-Configs) 
   - [📦 Config Details](#-config-details)
     - [🔐 Technical Details](#-technical-details)
   - [🔧 Professional / Advanced Usage](#-professional--advanced-usage)
