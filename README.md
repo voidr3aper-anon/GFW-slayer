@@ -2,7 +2,7 @@
 
 # 🚀 GFW-Slayer
 
-<img src="https://github.com/voidr3aper-anon/GFW-slayer/blob/main/Logo.png" width="350" alt="GFW-Slayer Logo" />
+<img src="https://github.com/voidr3aper-anon/GFW-slayer/blob/main/logo-new.png" width="350" alt="GFW-Slayer Logo" />
 
 ### *Serverless V2Ray Configurations for Unrestricted Internet Access*
 
@@ -84,7 +84,6 @@ These configs are designed for V2Ray-compatible clients (e.g., V2RayNG on Androi
 | 🌐 Other | Any V2Ray/XRay core | Check for V2Ray/XRay core support |
 
 ### 2️⃣ Add Subscription Links
-### 2️⃣ Add Subscription Links
 
 In your V2Ray app, go to the subscription section and add one or more of these URLs:
 
@@ -138,7 +137,6 @@ https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/ser
 These links point to JSON arrays of configurations. Your app will import multiple profiles (e.g., "ATOMIC-IR", "ATOMIC-GLOBAL-Android/windows-only", etc.) for you to select from.
 
 ### 3️⃣ Select and Connect
-### 3️⃣ Select and Connect
 
 - ✅ Update subscriptions in the app.
 - ✅ Choose a profile based on your needs (e.g., "ATOMIC-iran" for Iran-specific routing or "ATOMIC-XhTTP-new-era" for advanced features).
@@ -155,8 +153,6 @@ These links point to JSON arrays of configurations. Your app will import multipl
 
 ## 📦 Config Details
 ---
-
-## 📦 Config Details
 
 This repo includes **four main configuration files**, each optimized for different regions and use cases:
 
@@ -342,6 +338,7 @@ The default DNS servers in the configs (e.g., `78.157.42.100` for Iran, `114.114
   ]
   ```
 - Replace the listed servers with your chosen DNS servers. For DOH profiles, update the URLs in the `"servers"` array.
+- also in some configs  there is `8.8.8.8` somwhere . u can change it to see what happens. (usefull for networks like irancell  that blocks dns anti spoofing) 
 - Save the file and re-import it into your V2Ray client, or host it on your GitHub repo and update the subscription link.
 
 **3. Test DNS**
