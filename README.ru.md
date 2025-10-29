@@ -491,7 +491,9 @@ https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/ser
 
 Создано **void** ([@voidr3aper-anon](https://github.com/voidr3aper-anon))
 
-По вопросам или поддержке обращайтесь через [GitHub Issues](https://github.com/voidr3aper-anon/GFW-slayer/issues)
+По вопросам или поддержке обращайтесь через:
+- 📱 [Telegram канал](https://t.me/VoidVerge)
+- 🐛 [GitHub Issues](https://github.com/voidr3aper-anon/GFW-slayer/issues)
 
 ---
 

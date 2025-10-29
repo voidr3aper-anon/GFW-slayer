@@ -478,7 +478,9 @@ https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/ser
 
 ساخته شده توسط **void** ([@voidr3aper-anon](https://github.com/voidr3aper-anon))
 
-برای سؤالات یا پشتیبانی، از طریق [مسائل گیت‌هاب](https://github.com/voidr3aper-anon/GFW-slayer/issues) ارتباط برقرار کنید
+برای سؤالات یا پشتیبانی، از طریق موارد زیر ارتباط برقرار کنید:
+- 📱 [کانال تلگرام](https://t.me/VoidVerge)
+- 🐛 [مسائل گیت‌هاب](https://github.com/voidr3aper-anon/GFW-slayer/issues)
 
 ---
 

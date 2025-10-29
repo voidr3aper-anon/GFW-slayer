@@ -476,7 +476,9 @@ https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/ser
 
 由 **void**（[@voidr3aper-anon](https://github.com/voidr3aper-anon)）打造
 
-如有问题或支持，请通过 [GitHub Issues](https://github.com/voidr3aper-anon/GFW-slayer/issues) 联系
+如有问题或支持，请通过以下方式联系：
+- 📱 [Telegram 频道](https://t.me/VoidVerge)
+- 🐛 [GitHub Issues](https://github.com/voidr3aper-anon/GFW-slayer/issues)
 
 ---
 
