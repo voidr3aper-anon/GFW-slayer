@@ -13,6 +13,12 @@
 
 ---
 
+### 🌐 Read in Other Languages / خواندن به زبان‌های دیگر / Читать на других языках / 阅读其他语言
+
+**[English](README.md)** | **[فارسی](README.fa.md)** | **[Русский](README.ru.md)** | **[中文](README.zh-CN.md)**
+
+---
+
 </div>
 
 ## 📋 Table of Contents
