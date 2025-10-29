@@ -13,6 +13,12 @@
 
 ---
 
+### 🌐 Read in Other Languages / خواندن به زبان‌های دیگر / Читать на других языках / 阅读其他语言
+
+**[English](README.md)** | **[فارسی](README.fa.md)** | **[Русский](README.ru.md)** | **[中文](README.zh-CN.md)**
+
+---
+
 </div>
 
 ## 📋 Table of Contents
@@ -469,7 +475,9 @@ Issues and feature requests? [Open an issue here](https://github.com/voidr3aper-
 
 Built  by **void** ([@voidr3aper-anon](https://github.com/voidr3aper-anon))
 
-For questions or support, reach out via [GitHub Issues](https://github.com/voidr3aper-anon/GFW-slayer/issues)
+For questions or support, reach out via:
+- 📱 [Telegram Channel](https://t.me/VoidVerge)
+- 🐛 [GitHub Issues](https://github.com/voidr3aper-anon/GFW-slayer/issues)
 
 ---
 
