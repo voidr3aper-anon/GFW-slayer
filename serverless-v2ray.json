@@ -77,9 +77,9 @@
                 "settings": {
                     "domainStrategy": "UseIPv4",
                     "fragment": {
-                        "packets": "tlshello",
-                        "length": "10-80",
-                        "interval": "10-40"
+                        "packets": "1-5",
+                        "length": "4-9",
+                        "interval": "1-12"
                     }
                 },
                 "streamSettings": {
@@ -297,9 +297,9 @@
                 "settings": {
                     "domainStrategy": "UseIPv4",
                     "fragment": {
-                        "packets": "tlshello",
-                        "length": "10-80",
-                        "interval": "10-40"
+                        "packets": "1-5",
+                        "length": "3-9",
+                        "interval": "1-14"
                     }
                 },
                 "streamSettings": {
@@ -522,9 +522,9 @@
                 "settings": {
                     "domainStrategy": "UseIPv4",
                     "fragment": {
-                        "packets": "tlshello",
-                        "length": "10-80",
-                        "interval": "10-40"
+                        "packets": "1-5",
+                        "length": "2-9",
+                        "interval": "3-15"
                     }
                 },
                 "streamSettings": {
@@ -757,9 +757,9 @@
                 "settings": {
                     "domainStrategy": "UseIPv4",
                     "fragment": {
-                        "packets": "tlshello",
-                        "length": "10-80",
-                        "interval": "10-40"
+                        "packets": "1-5",
+                        "length": "1-9",
+                        "interval": "1-4"
                     }
                 },
                 "streamSettings": {
@@ -991,9 +991,9 @@
     		"settings": {
     		    "domainStrategy": "UseIPv4",
     		    "fragment": {
-    		        "packets": "tlshello",
-    		        "length": "10-80",
-    		        "interval": "10-40"
+    		        "packets": "1-1",
+    		        "length": "1-8",
+    		        "interval": "1-4"
     		    }
     		},
     		"streamSettings": {
