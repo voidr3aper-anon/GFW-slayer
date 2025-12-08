@@ -77,9 +77,9 @@
                 "settings": {
                     "domainStrategy": "UseIPv4",
                     "fragment": {
-                        "packets": "1-5",
-                        "length": "4-9",
-                        "interval": "1-12"
+                    "packets": "1-5",
+                    "length": "4-19",
+                    "interval": "1-4"
                     }
                 },
                 "streamSettings": {
@@ -990,11 +990,11 @@
     		"protocol": "freedom",
     		"settings": {
     		    "domainStrategy": "UseIPv4",
-    		    "fragment": {
-    		        "packets": "1-1",
-    		        "length": "1-8",
-    		        "interval": "1-4"
-    		    }
+                "fragment": {
+                "packets": "1-5",
+                "length": "4-19",
+                "interval": "1-4"
+                }
     		},
     		"streamSettings": {
     		    "sockopt": {
