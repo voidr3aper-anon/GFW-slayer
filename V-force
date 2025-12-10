@@ -1313,7 +1313,7 @@
     "servers": [
 	{
         "address":"https://sky.rethinkdns.com/dns-query",
-		"proxyOutboundTag": "fragment-out",
+		"proxyOutboundTag": "fragment-out"
         
 	},
 	{
@@ -1332,12 +1332,12 @@
 	{
 		"address": "https://ada.openbld.net/dns-query",
 		"proxyOutboundTag": "fragment-out",
-        "timeoutMs": 1000,
+        "timeoutMs": 1000
 	},
 	{
         "address": "https://doh.flashstart.com/f17c9ee5",
         "proxyOutboundTag": "fragment-out",
-        "timeoutMs": 1500,
+        "timeoutMs": 1500
 	},
     {
         "address": "https://dns.quad9.net/dns-query",
