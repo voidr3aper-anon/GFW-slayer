@@ -337,6 +337,12 @@
       "protocol": "vless",
       "tag": "fakeproxy-out",
       "settings": {
+        "fragment": {
+        "packets": "2-4",      
+        "length": "200-800",   
+        "interval": "5-20",    
+        "maxSplit": "1000-2000"
+        },
         "vnext": [
           {
             "address": "google.com",
@@ -401,7 +407,7 @@
         ]
       },
       "proxySettings": {
-        "tag": "fragment-out"
+        "tag": "fakeproxy-out"
       }
     },
     {
@@ -1433,7 +1439,13 @@
 			  "packet": "hiGFW",
 			  "delay": "10-16",
 			  "applyTo": "ipv6"
-			}
+			},
+            {
+                "type": "str",
+                "packet": "GET /favicon.ico HTTP/1.1\r\nHost: www.google.com\r\n\r\n",
+                "delay": "50-200",
+                "applyTo": "ip"
+            }
 		  ]
       },
       "streamSettings": {
