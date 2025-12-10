@@ -237,282 +237,282 @@
         "stats": {}
     },
     {
-  "remarks": "ATOMIC-XhTTP-DOH + Telegram via IP Proxy",
-  "log": {
-    "loglevel": "debug",
-    "access": "",
-    "error": "",
-    "dnsLog": false
-  },
-  "dns": {
-    "queryStrategy": "UseIPv4",
-    "tag": "dns",
-    "unexpectedIPs": [
-      "10.10.34.34",
-      "10.10.34.35",
-      "10.10.34.36"
-    ],
-    "hosts": {
-      "www.kirtokhamenei.ir": [
-        "8.8.8.8"
-      ]
-    },
-    "servers": [
-      "https://1.1.1.1/dns-query",
-      "8.8.8.8",
-      "https://sky.rethinkdns.com/dns-query",
-      "https://sky.rethinkdns.com/dns-query",
-      "https://ada.openbld.net/dns-query",
-      "https://mozilla.cloudflare-dns.com/dns-query",
-      "localhost"
-    ]
-  },
-  "inbounds": [
-    {
-      "listen": "127.0.0.1",
-      "port": 10808,
-      "protocol": "socks",
-      "settings": {
-        "auth": "noauth",
-        "udp": true,
-        "userLevel": 8
-      },
-      "sniffing": {
-        "destOverride": [
-          "http",
-          "tls"
-        ],
-        "enabled": true
-      },
-      "tag": "socks-in"
-    },
-    {
-      "listen": "127.0.0.1",
-      "port": 10809,
-      "protocol": "http",
-      "settings": {
-        "userLevel": 8
-      },
-      "sniffing": {
-        "destOverride": [
-          "http",
-          "tls"
-        ],
-        "enabled": true
-      },
-      "tag": "http-in"
-    },
-    {
-      "port": 10853,
-      "protocol": "dokodemo-door",
-      "settings": {
-        "address": "8.8.8.8",
-        "network": "tcp,udp",
-        "port": 53
-      },
-      "tag": "dns-in"
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom",
-      "settings": {
-        "domainStrategy": "UseIPv4",
-        "fragment": {
-          "packets": "1-5",
-          "length": "1-9",
-          "interval": "1-4"
-        }
-      },
-      "streamSettings": {
-        "sockopt": {
-          "tcpNoDelay": true,
-          "tcpKeepAliveIdle": 100,
-          "domainStrategy": "UseIP"
-        }
-      },
-      "tag": "fragment-out"
-    },
-    {
-      "protocol": "vless",
-      "tag": "fakeproxy-out",
-      "settings": {
-        "fragment": {
-        "packets": "2-4",      
-        "length": "200-800",   
-        "interval": "5-20",    
-        "maxSplit": "1000-2000"
+        "remarks": "ATOMIC-XhTTP-DOH + Telegram via IP Proxy",
+        "log": {
+            "loglevel": "debug",
+            "access": "",
+            "error": "",
+            "dnsLog": false
         },
-        "vnext": [
-          {
-            "address": "google.com",
-            "port": 443,
-            "users": [
-              {
-                "encryption": "none",
-                "flow": "",
-                "id": "UUID",
-                "level": 8,
-                "security": "auto"
-              }
+        "dns": {
+            "queryStrategy": "UseIPv4",
+            "tag": "dns",
+            "unexpectedIPs": [
+            "10.10.34.34",
+            "10.10.34.35",
+            "10.10.34.36"
+            ],
+            "hosts": {
+            "www.kirtokhamenei.ir": [
+                "8.8.8.8"
             ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "xhttp",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "alpn": [
-            "h3,h2,http/1.1"
-          ],
-          "fingerprint": "randomized",
-          "serverName": "www.google.com",
-          "show": false
+            },
+            "servers": [
+            "https://1.1.1.1/dns-query",
+            "8.8.8.8",
+            "https://sky.rethinkdns.com/dns-query",
+            "https://sky.rethinkdns.com/dns-query",
+            "https://ada.openbld.net/dns-query",
+            "https://mozilla.cloudflare-dns.com/dns-query",
+            "localhost"
+            ]
         },
-        "xhttpSettings": {
-          "host": "www.google.com",
-          "path": "/",
-          "mode": "auto",
-          "extra": {
-            "xPaddingBytes": "96-254",
-            "noGRPCHeader": false,
-            "noSSEHeader": false,
-            "xmux": {
-              "maxConcurrency": "16-128",
-              "maxConnections": 0,
-              "cMaxReuseTimes": 0,
-              "hMaxRequestTimes": "300-1000",
-              "hMaxReusableSecs": "1200-5000",
-              "hKeepAlivePeriod": 0
+        "inbounds": [
+            {
+            "listen": "127.0.0.1",
+            "port": 10808,
+            "protocol": "socks",
+            "settings": {
+                "auth": "noauth",
+                "udp": true,
+                "userLevel": 8
+            },
+            "sniffing": {
+                "destOverride": [
+                "http",
+                "tls"
+                ],
+                "enabled": true
+            },
+            "tag": "socks-in"
+            },
+            {
+            "listen": "127.0.0.1",
+            "port": 10809,
+            "protocol": "http",
+            "settings": {
+                "userLevel": 8
+            },
+            "sniffing": {
+                "destOverride": [
+                "http",
+                "tls"
+                ],
+                "enabled": true
+            },
+            "tag": "http-in"
+            },
+            {
+            "port": 10853,
+            "protocol": "dokodemo-door",
+            "settings": {
+                "address": "8.8.8.8",
+                "network": "tcp,udp",
+                "port": 53
+            },
+            "tag": "dns-in"
             }
-          }
-        }
-      },
-      "mux": {
-        "concurrency": 8,
-        "enabled": false
-      }
-    },
-    {
-      "protocol": "socks",
-      "tag": "telegram-proxy",
-      "settings": {
-        "servers": [
-          {
-            "address": "121.169.46.116",
-            "port": 1090
-          }
-        ]
-      },
-      "proxySettings": {
-        "tag": "fakeproxy-out"
-      }
-    },
-    {
-      "protocol": "dns",
-      "tag": "dns-out"
-    },
-    {
-      "protocol": "blackhole",
-      "settings": {
-        "response": {
-          "type": "http"
-        }
-      },
-      "tag": "block"
-    },
-    {
-      "protocol": "socks",
-      "tag": "dummy",
-      "settings": {
-        "servers": [
-          {
-            "address": "127.0.0.1",
-            "port": 10808
-          }
-        ]
-      }
-    }
-  ],
-  "policy": {
-    "levels": {
-      "8": {
-        "connIdle": 300,
-        "downlinkOnly": 1,
-        "handshake": 4,
-        "uplinkOnly": 1
-      }
-    },
-    "system": {
-      "statsOutboundUplink": true,
-      "statsOutboundDownlink": true
-    }
-  },
-  "routing": {
-    "domainStrategy": "IPIfNonMatch",
-    "rules": [
-      {
-        "inboundTag": [
-          "dns-in"
         ],
-        "outboundTag": "dns-out",
-        "type": "field"
-      },
-      {
-        "inboundTag": [
-          "socks-in",
-          "http-in"
+        "outbounds": [
+            {
+            "protocol": "freedom",
+            "settings": {
+                "domainStrategy": "UseIPv4",
+                "fragment": {
+                "packets": "1-5",
+                "length": "1-9",
+                "interval": "1-4"
+                }
+            },
+            "streamSettings": {
+                "sockopt": {
+                "tcpNoDelay": true,
+                "tcpKeepAliveIdle": 100,
+                "domainStrategy": "UseIP"
+                }
+            },
+            "tag": "fragment-out"
+            },
+            {
+            "protocol": "vless",
+            "tag": "fakeproxy-out",
+            "settings": {
+                "fragment": {
+                "packets": "2-4",      
+                "length": "200-800",   
+                "interval": "5-20",    
+                "maxSplit": "1000-2000"
+                },
+                "vnext": [
+                {
+                    "address": "google.com",
+                    "port": 443,
+                    "users": [
+                    {
+                        "encryption": "none",
+                        "flow": "",
+                        "id": "UUID",
+                        "level": 8,
+                        "security": "auto"
+                    }
+                    ]
+                }
+                ]
+            },
+            "streamSettings": {
+                "network": "xhttp",
+                "security": "tls",
+                "tlsSettings": {
+                "allowInsecure": false,
+                "alpn": [
+                    "h3,h2,http/1.1"
+                ],
+                "fingerprint": "randomized",
+                "serverName": "www.google.com",
+                "show": false
+                },
+                "xhttpSettings": {
+                "host": "www.google.com",
+                "path": "/",
+                "mode": "auto",
+                "extra": {
+                    "xPaddingBytes": "96-254",
+                    "noGRPCHeader": false,
+                    "noSSEHeader": false,
+                    "xmux": {
+                    "maxConcurrency": "16-128",
+                    "maxConnections": 0,
+                    "cMaxReuseTimes": 0,
+                    "hMaxRequestTimes": "300-1000",
+                    "hMaxReusableSecs": "1200-5000",
+                    "hKeepAlivePeriod": 0
+                    }
+                }
+                }
+            },
+            "mux": {
+                "concurrency": 8,
+                "enabled": false
+            }
+            },
+            {
+            "protocol": "socks",
+            "tag": "telegram-proxy",
+            "settings": {
+                "servers": [
+                {
+                    "address": "121.169.46.116",
+                    "port": 1090
+                }
+                ]
+            },
+            "proxySettings": {
+                "tag": "fakeproxy-out"
+            }
+            },
+            {
+            "protocol": "dns",
+            "tag": "dns-out"
+            },
+            {
+            "protocol": "blackhole",
+            "settings": {
+                "response": {
+                "type": "http"
+                }
+            },
+            "tag": "block"
+            },
+            {
+            "protocol": "socks",
+            "tag": "dummy",
+            "settings": {
+                "servers": [
+                {
+                    "address": "127.0.0.1",
+                    "port": 10808
+                }
+                ]
+            }
+            }
         ],
-        "port": 53,
-        "outboundTag": "dns-out",
-        "type": "field"
-      },
-      {
-        "type": "field",
-        "domain": [
-          "geosite:telegram"
-        ],
-        "outboundTag": "telegram-proxy"
-      },
-      {
-        "type": "field",
-        "ip": [
-          "91.108.4.0/22",
-          "91.108.8.0/22",
-          "91.108.12.0/22",
-          "91.108.16.0/22",
-          "91.108.56.0/22",
-          "149.154.160.0/20",
-          "185.76.151.0/24"
-        ],
-        "outboundTag": "telegram-proxy"
-      },
-      {
-        "inboundTag": [
-          "socks-in",
-          "http-in"
-        ],
-        "port": "0-65535",
-        "outboundTag": "fragment-out",
-        "type": "field",
-        "enabled": true
-      },
-      {
-        "ip": [
-          "10.10.34.34",
-          "10.10.34.35",
-          "10.10.34.36"
-        ],
-        "outboundTag": "block",
-        "type": "field"
-      }
-    ],
-    "strategy": "rules"
-  },
-  "stats": {}
-},
+        "policy": {
+            "levels": {
+            "8": {
+                "connIdle": 300,
+                "downlinkOnly": 1,
+                "handshake": 4,
+                "uplinkOnly": 1
+            }
+            },
+            "system": {
+            "statsOutboundUplink": true,
+            "statsOutboundDownlink": true
+            }
+        },
+        "routing": {
+            "domainStrategy": "IPIfNonMatch",
+            "rules": [
+            {
+                "inboundTag": [
+                "dns-in"
+                ],
+                "outboundTag": "dns-out",
+                "type": "field"
+            },
+            {
+                "inboundTag": [
+                "socks-in",
+                "http-in"
+                ],
+                "port": 53,
+                "outboundTag": "dns-out",
+                "type": "field"
+            },
+            {
+                "type": "field",
+                "domain": [
+                "geosite:telegram"
+                ],
+                "outboundTag": "telegram-proxy"
+            },
+            {
+                "type": "field",
+                "ip": [
+                "91.108.4.0/22",
+                "91.108.8.0/22",
+                "91.108.12.0/22",
+                "91.108.16.0/22",
+                "91.108.56.0/22",
+                "149.154.160.0/20",
+                "185.76.151.0/24"
+                ],
+                "outboundTag": "telegram-proxy"
+            },
+            {
+                "inboundTag": [
+                "socks-in",
+                "http-in"
+                ],
+                "port": "0-65535",
+                "outboundTag": "fragment-out",
+                "type": "field",
+                "enabled": true
+            },
+            {
+                "ip": [
+                "10.10.34.34",
+                "10.10.34.35",
+                "10.10.34.36"
+                ],
+                "outboundTag": "block",
+                "type": "field"
+            }
+            ],
+            "strategy": "rules"
+        },
+        "stats": {}
+        },
     {        
         "remarks": "ATOMIC-XhTTP-DOH-level-1",
         "log": {
@@ -1289,311 +1289,981 @@
     "stats": {}
     },
     {
-  "remarks": "ATOMIC-XhTTP-DOH-GFW-resist-2",
-  "log": {
-    "loglevel": "debug",
-    "access": "",
-    "error": "",
-    "dnsLog": true
-  },
-  "dns": {
-    "disableECS": true,
-    "queryStrategy": "UseIPv4",
-    "tag": "dns",
-    "unexpectedIPs": [
-      "10.10.34.34",
-      "10.10.34.35",
-      "10.10.34.36"
-    ],
-    "hosts": {
-      "www.kirtokhamenei.ir": ["8.8.8.8"],
-	    "dns.nextdns.io": ["45.90.30.0","45.90.28.0"],
-	    "unfiltered.joindns4.eu": ["86.54.11.200","86.54.11.100"],
-	    "ada.openbld.net": ["146.112.41.102","146.112.41.2"],
-	    "sky.rethinkdns.com": ["104.18.0.48","8.47.69.0"],
-	    "mozilla.cloudflare-dns.com": ["162.159.61.4","172.64.41.4"],
-		"doh.flashstart.com": ["185.236.104.104"],
-        "anti-ban.dynx.pro": ["10.139.177.17"],
-        "dns.quad9.net": ["9.9.9.9","149.112.112.112"]
-    },
-    "servers": [
-	{
-        "address":"https://sky.rethinkdns.com/dns-query",
-		"proxyOutboundTag": "fragment-out"
-        
-	},
-	{
-		"address": "https://mozilla.cloudflare-dns.com/dns-query",
-		 "proxyOutboundTag": "fragment-out"
-	},  
-	{
-		"address": "https://dns.nextdns.io", 
-		"proxyOutboundTag": "fragment-out"
-	},
-	{
-		"address": "https://unfiltered.joindns4.eu/dns-query",
-	    "proxyOutboundTag": "fragment-out"
-					
-	},
-	{
-		"address": "https://ada.openbld.net/dns-query",
-		"proxyOutboundTag": "fragment-out",
-        "timeoutMs": 1000
-	},
-	{
-        "address": "https://doh.flashstart.com/f17c9ee5",
-        "proxyOutboundTag": "fragment-out",
-        "timeoutMs": 1500
-	},
-    {
-        "address": "https://dns.quad9.net/dns-query",
-        "proxyOutboundTag": "fragment-out",
-          "domains": [
-            "geosite:category-ads-all"
-            ]       
-    },
-    {
-        "address": "https://anti-ban.dynx.pro/dns-query",
-        "proxyOutboundTag": "fragment-out",
-        "timeoutMs": 2000
-    },
-    {
-        "address": "localhost",
-        "domains": ["domain:ir", "geosite:private", "geosite:ir"],
-        "finalQuery": true
-    }
-    ]
-    },
-  "inbounds": [
-    {
-      "listen": "127.0.0.1",
-      "port": 10808,
-      "protocol": "socks",
-      "settings": {
-        "auth": "noauth",
-        "udp": true,
-        "userLevel": 8
-      },
-      "sniffing": {
-        "destOverride": [
-          "http",
-          "tls"
-        ],
-        "enabled": true
-      },
-      "tag": "socks-in"
-    },
-    {
-      "listen": "127.0.0.1",
-      "port": 10809,
-      "protocol": "http",
-      "settings": {
-        "userLevel": 8
-      },
-      "sniffing": {
-        "destOverride": [
-          "http",
-          "tls"
-        ],
-        "enabled": true
-      },
-      "tag": "http-in"
-    },
-    {
-      "port": 10853,
-      "protocol": "dokodemo-door",
-      "settings": {
-        "address": "8.8.8.8",
-        "network": "tcp,udp",
-        "port": 53
-      },
-      "tag": "dns-in"
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom",
-      "settings": {
-        "domainStrategy": "UseIPv4",
-        "fragment": {
-          "packets": "1-5",
-          "length": "4-8",
-          "interval": "2-4",
-		  "maxSplit": "32-512"
+        "remarks": "ATOMIC-XhTTP-DOH-GFW-resist-2",
+        "log": {
+            "loglevel": "debug",
+            "access": "",
+            "error": "",
+            "dnsLog": true
         },
-		  "noises": [
-			{
-			  "type": "base64",
-			  "packet": "7nQBAAABAAAAAAAACnF0LXN0cmluZwZnb29nbGUDY29tAAABAAE=",
-			  "delay": "10-16",
-			  "applyTo": "ip"
-			},
-			{
-			  "type": "rand",
-			  "packet": "10-20",
-			  "delay": "10-16",
-			  "applyTo": "ipv4"
-			},
-			{
-			  "type": "str",
-			  "packet": "hiGFW",
-			  "delay": "10-16",
-			  "applyTo": "ipv6"
-			},
+        "dns": {
+            "disableECS": true,
+            "queryStrategy": "UseIPv4",
+            "tag": "dns",
+            "unexpectedIPs": [
+            "10.10.34.34",
+            "10.10.34.35",
+            "10.10.34.36"
+            ],
+            "hosts": {
+            "www.kirtokhamenei.ir": ["8.8.8.8"],
+                "dns.nextdns.io": ["45.90.30.0","45.90.28.0"],
+                "unfiltered.joindns4.eu": ["86.54.11.200","86.54.11.100"],
+                "ada.openbld.net": ["146.112.41.102","146.112.41.2"],
+                "sky.rethinkdns.com": ["104.18.0.48","8.47.69.0"],
+                "mozilla.cloudflare-dns.com": ["162.159.61.4","172.64.41.4"],
+                "doh.flashstart.com": ["185.236.104.104"],
+                "anti-ban.dynx.pro": ["10.139.177.17"],
+                "dns.quad9.net": ["9.9.9.9","149.112.112.112"]
+            },
+            "servers": [
             {
-                "type": "str",
-                "packet": "GET /favicon.ico HTTP/1.1\r\nHost: www.google.com\r\n\r\n",
-                "delay": "50-200",
-                "applyTo": "ip"
+                "address":"https://sky.rethinkdns.com/dns-query",
+                "proxyOutboundTag": "fragment-out"
+                
+            },
+            {
+                "address": "https://mozilla.cloudflare-dns.com/dns-query",
+                "proxyOutboundTag": "fragment-out"
+            },  
+            {
+                "address": "https://dns.nextdns.io", 
+                "proxyOutboundTag": "fragment-out"
+            },
+            {
+                "address": "https://unfiltered.joindns4.eu/dns-query",
+                "proxyOutboundTag": "fragment-out"
+                            
+            },
+            {
+                "address": "https://ada.openbld.net/dns-query",
+                "proxyOutboundTag": "fragment-out",
+                "timeoutMs": 1000
+            },
+            {
+                "address": "https://doh.flashstart.com/f17c9ee5",
+                "proxyOutboundTag": "fragment-out",
+                "timeoutMs": 1500
+            },
+            {
+                "address": "https://dns.quad9.net/dns-query",
+                "proxyOutboundTag": "fragment-out",
+                "domains": [
+                    "geosite:category-ads-all"
+                    ]       
+            },
+            {
+                "address": "https://anti-ban.dynx.pro/dns-query",
+                "proxyOutboundTag": "fragment-out",
+                "timeoutMs": 2000
+            },
+            {
+                "address": "localhost",
+                "domains": ["domain:ir", "geosite:private", "geosite:ir"],
+                "finalQuery": true
             }
-		  ]
-      },
-      "streamSettings": {
-        "sockopt": {
-          "tcpNoDelay": true,
-          "tcpKeepAliveIdle": 100,
-          "domainStrategy": "UseIP"
-        }
-      },
-      "tag": "fragment-out"
-    },
-    {
-      "protocol": "vless",
-      "tag": "fakeproxy-out",
-      "settings": {
-        "vnext": [
-          {
-            "address": "google.com",
-            "port": 443,
-            "users": [
-              {
-                "encryption": "none",
-                "flow": "",
-                "id": "UUID",
-                "level": 8,
-                "security": "auto"
-              }
             ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "xhttp",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "alpn": [
-            "h3,h2,http/1.1"
-          ],
-          "fingerprint": "randomized",
-          "serverName": "google.com",
-          "show": false
-        },
-        "xhttpSettings": {
-          "host": "google.com",
-          "path": "/",
-          "mode": "auto",
-          "extra": {
-            "xPaddingBytes": "96-254",
-            "noGRPCHeader": false,
-            "noSSEHeader": false,
-            "xmux": {
-              "maxConcurrency": "16-128",
-              "maxConnections": 0,
-              "cMaxReuseTimes": 0,
-              "hMaxRequestTimes": "300-1000",
-              "hMaxReusableSecs": "1200-5000",
-              "hKeepAlivePeriod": 0
+            },
+        "inbounds": [
+            {
+            "listen": "127.0.0.1",
+            "port": 10808,
+            "protocol": "socks",
+            "settings": {
+                "auth": "noauth",
+                "udp": true,
+                "userLevel": 8
+            },
+            "sniffing": {
+                "destOverride": [
+                "http",
+                "tls"
+                ],
+                "enabled": true
+            },
+            "tag": "socks-in"
+            },
+            {
+            "listen": "127.0.0.1",
+            "port": 10809,
+            "protocol": "http",
+            "settings": {
+                "userLevel": 8
+            },
+            "sniffing": {
+                "destOverride": [
+                "http",
+                "tls"
+                ],
+                "enabled": true
+            },
+            "tag": "http-in"
+            },
+            {
+            "port": 10853,
+            "protocol": "dokodemo-door",
+            "settings": {
+                "address": "8.8.8.8",
+                "network": "tcp,udp",
+                "port": 53
+            },
+            "tag": "dns-in"
             }
-          }
+        ],
+        "outbounds": [
+            {
+            "protocol": "freedom",
+            "settings": {
+                "domainStrategy": "UseIPv4",
+                "fragment": {
+                "packets": "1-5",
+                "length": "4-8",
+                "interval": "2-4",
+                "maxSplit": "32-512"
+                },
+                "noises": [
+                    {
+                    "type": "base64",
+                    "packet": "7nQBAAABAAAAAAAACnF0LXN0cmluZwZnb29nbGUDY29tAAABAAE=",
+                    "delay": "10-16",
+                    "applyTo": "ip"
+                    },
+                    {
+                    "type": "rand",
+                    "packet": "10-20",
+                    "delay": "10-16",
+                    "applyTo": "ipv4"
+                    },
+                    {
+                    "type": "str",
+                    "packet": "hiGFW",
+                    "delay": "10-16",
+                    "applyTo": "ipv6"
+                    },
+                    {
+                        "type": "str",
+                        "packet": "GET /favicon.ico HTTP/1.1\r\nHost: www.google.com\r\n\r\n",
+                        "delay": "50-200",
+                        "applyTo": "ip"
+                    }
+                ]
+            },
+            "streamSettings": {
+                "sockopt": {
+                "tcpNoDelay": true,
+                "tcpKeepAliveIdle": 100,
+                "domainStrategy": "UseIP"
+                }
+            },
+            "tag": "fragment-out"
+            },
+            {
+            "protocol": "vless",
+            "tag": "fakeproxy-out",
+            "settings": {
+                "vnext": [
+                {
+                    "address": "google.com",
+                    "port": 443,
+                    "users": [
+                    {
+                        "encryption": "none",
+                        "flow": "",
+                        "id": "UUID",
+                        "level": 8,
+                        "security": "auto"
+                    }
+                    ]
+                }
+                ]
+            },
+            "streamSettings": {
+                "network": "xhttp",
+                "security": "tls",
+                "tlsSettings": {
+                "allowInsecure": false,
+                "alpn": [
+                    "h3,h2,http/1.1"
+                ],
+                "fingerprint": "randomized",
+                "serverName": "google.com",
+                "show": false
+                },
+                "xhttpSettings": {
+                "host": "google.com",
+                "path": "/",
+                "mode": "auto",
+                "extra": {
+                    "xPaddingBytes": "96-254",
+                    "noGRPCHeader": false,
+                    "noSSEHeader": false,
+                    "xmux": {
+                    "maxConcurrency": "16-128",
+                    "maxConnections": 0,
+                    "cMaxReuseTimes": 0,
+                    "hMaxRequestTimes": "300-1000",
+                    "hMaxReusableSecs": "1200-5000",
+                    "hKeepAlivePeriod": 0
+                    }
+                }
+                }
+            },
+            "mux": {
+                "concurrency": 8,
+                "enabled": true
+            }
+            },
+            {
+            "protocol": "dns",
+            "tag": "dns-out"
+            },
+            {
+            "protocol": "blackhole",
+            "settings": {
+                "response": {
+                "type": "http"
+                }
+            },
+            "tag": "block"
+            },
+            {
+            "protocol": "socks",
+            "tag": "dummy",
+            "settings": {
+                "servers": [
+                {
+                    "address": "127.0.0.1",
+                    "port": 10808
+                }
+                ]
+            }
+            }
+        ],
+        "policy": {
+            "levels": {
+            "8": {
+                "connIdle": 300,
+                "downlinkOnly": 1,
+                "handshake": 4,
+                "uplinkOnly": 1
+            }
+            },
+            "system": {
+            "statsOutboundUplink": true,
+            "statsOutboundDownlink": true
+            }
+        },
+        "routing": {
+            "domainStrategy": "IPIfNonMatch",
+            "rules": [
+            {
+                "inboundTag": [
+                "dns-in"
+                ],
+                "outboundTag": "dns-out",
+                "type": "field"
+            },
+            {
+                "inboundTag": [
+                "socks-in",
+                "http-in"
+                ],
+                "port": 53,
+                "outboundTag": "dns-out",
+                "type": "field"
+            },
+            {
+                "inboundTag": [
+                "socks-in",
+                "http-in"
+                ],
+                "port": "0-65535",
+                "outboundTag": "fragment-out",
+                "type": "field",
+                "enabled": true
+            },
+            {
+                "ip": [
+                "10.10.34.34",
+                "10.10.34.35",
+                "10.10.34.36"
+                ],
+                "outboundTag": "block",
+                "type": "field"
+            }
+            ],
+            "strategy": "rules"
+        },
+        "stats": {}
+        },
+      {
+        "remarks": "ATOMIC-XhTTP-DOH-GFW-resist-3",
+        "log": {
+            "loglevel": "none",
+            "access": "",
+            "error": "",
+            "dnsLog": false
+        },
+        "dns": {
+            "disableECS": true,
+            "queryStrategy": "UseIPv4",
+            "tag": "dns",
+            "unexpectedIPs": [
+            "10.10.34.34",
+            "10.10.34.35",
+            "10.10.34.36"
+            ],
+            "hosts": {
+            "www.kirtokhamenei.ir": ["8.8.8.8"],
+                "dns.nextdns.io": ["45.90.30.0","45.90.28.0"],
+                "unfiltered.joindns4.eu": ["86.54.11.200","86.54.11.100"],
+                "ada.openbld.net": ["146.112.41.102","146.112.41.2"],
+                "sky.rethinkdns.com": ["104.18.0.48","8.47.69.0"],
+                "mozilla.cloudflare-dns.com": ["162.159.61.4","172.64.41.4"],
+                "doh.flashstart.com": ["185.236.104.104"],
+                "anti-ban.dynx.pro": ["10.139.177.17"],
+                "dns.quad9.net": ["9.9.9.9","149.112.112.112"]
+            },
+            "servers": [
+            {
+                "address":"https://sky.rethinkdns.com/dns-query",
+                "proxyOutboundTag": "fakeproxy-out"
+                
+            },
+            {
+                "address": "https://mozilla.cloudflare-dns.com/dns-query",
+                "proxyOutboundTag": "fakeproxy-out"
+            },  
+            {
+                "address": "https://dns.nextdns.io", 
+                "proxyOutboundTag": "fakeproxy-out"
+            },
+            {
+                "address": "https://unfiltered.joindns4.eu/dns-query",
+                "proxyOutboundTag": "fakeproxy-out"
+                            
+            },
+            {
+                "address": "https://ada.openbld.net/dns-query",
+                "proxyOutboundTag": "fakeproxy-out",
+                "timeoutMs": 1000
+            },
+            {
+                "address": "https://doh.flashstart.com/f17c9ee5",
+                "proxyOutboundTag": "fakeproxy-out",
+                "timeoutMs": 1500
+            },
+            {
+                "address": "https://dns.quad9.net/dns-query",
+                "proxyOutboundTag": "fakeproxy-out",
+                "domains": [
+                    "geosite:category-ads-all"
+                    ]       
+            },
+            {
+                "address": "https://anti-ban.dynx.pro/dns-query",
+                "proxyOutboundTag": "fakeproxy-out",
+                "timeoutMs": 2000
+            },
+            {
+                "address": "localhost",
+                "domains": ["domain:ir", "geosite:private", "geosite:ir"],
+                "finalQuery": true
+            }
+            ]
+            },
+        "inbounds": [
+            {
+            "listen": "127.0.0.1",
+            "port": 10808,
+            "protocol": "socks",
+            "settings": {
+                "auth": "noauth",
+                "udp": true,
+                "userLevel": 8
+            },
+            "sniffing": {
+                "destOverride": [
+                "http",
+                "tls"
+                ],
+                "enabled": true
+            },
+            "tag": "socks-in"
+            },
+            {
+            "listen": "127.0.0.1",
+            "port": 10809,
+            "protocol": "http",
+            "settings": {
+                "userLevel": 8
+            },
+            "sniffing": {
+                "destOverride": [
+                "http",
+                "tls"
+                ],
+                "enabled": true
+            },
+            "tag": "http-in"
+            },
+            {
+            "port": 10853,
+            "protocol": "dokodemo-door",
+            "settings": {
+                "address": "8.8.8.8",
+                "network": "tcp,udp",
+                "port": 53
+            },
+            "tag": "dns-in"
+            }
+        ],
+        "outbounds": [
+            {
+            "protocol": "freedom",
+            "settings": {
+                "domainStrategy": "UseIPv4",
+                "fragment": {
+                "packets": "1-5",
+                "length": "4-8",
+                "interval": "2-4",
+                "maxSplit": "32-512"
+                },
+                "noises": [
+                    {
+                    "type": "base64",
+                    "packet": "7nQBAAABAAAAAAAACnF0LXN0cmluZwZnb29nbGUDY29tAAABAAE=",
+                    "delay": "10-16",
+                    "applyTo": "ip"
+                    },
+                    {
+                    "type": "rand",
+                    "packet": "10-20",
+                    "delay": "10-16",
+                    "applyTo": "ipv4"
+                    },
+                    {
+                    "type": "str",
+                    "packet": "hiGFW",
+                    "delay": "10-16",
+                    "applyTo": "ipv6"
+                    },
+                    {
+                        "type": "str",
+                        "packet": "GET /favicon.ico HTTP/1.1\r\nHost: www.google.com\r\n\r\n",
+                        "delay": "50-200",
+                        "applyTo": "ip"
+                    }
+                ]
+            },
+            "streamSettings": {
+                "sockopt": {
+                "tcpNoDelay": true,
+                "tcpKeepAliveIdle": 100,
+                "domainStrategy": "UseIP"
+                }
+            },
+            "tag": "fragment-out"
+            },
+            {
+            "protocol": "vless",
+            "tag": "fakeproxy-out",
+            "settings": {
+                "fragment": {
+                    "packets": "2-4",      
+                    "length": "200-800",   
+                    "interval": "5-20",    
+                    "maxSplit": "1000-2000"
+                },
+                "vnext": [
+                {
+                    "address": "google.com",
+                    "port": 443,
+                    "users": [
+                    {
+                        "encryption": "none",
+                        "flow": "",
+                        "id": "UUID",
+                        "level": 8,
+                        "security": "auto"
+                    }
+                    ]
+                }
+                ]
+            },
+            "streamSettings": {
+                "network": "xhttp",
+                "security": "tls",
+                "tlsSettings": {
+                "allowInsecure": false,
+                "alpn": [
+                    "h3,h2,http/1.1"
+                ],
+                "fingerprint": "randomized",
+                "serverName": "google.com",
+                "show": false
+                },
+                "xhttpSettings": {
+                "host": "google.com",
+                "path": "/",
+                "mode": "auto",
+                "extra": {
+                    "xPaddingBytes": "96-254",
+                    "noGRPCHeader": false,
+                    "noSSEHeader": false,
+                    "xmux": {
+                    "maxConcurrency": "16-128",
+                    "maxConnections": 0,
+                    "cMaxReuseTimes": 0,
+                    "hMaxRequestTimes": "300-1000",
+                    "hMaxReusableSecs": "1200-5000",
+                    "hKeepAlivePeriod": 0
+                    }
+                }
+                }
+            },
+            "mux": {
+                "concurrency": 8,
+                "enabled": true
+            }
+            },
+            {
+            "protocol": "dns",
+            "tag": "dns-out"
+            },
+            {
+            "protocol": "blackhole",
+            "settings": {
+                "response": {
+                "type": "http"
+                }
+            },
+            "tag": "block"
+            },
+            {
+            "protocol": "socks",
+            "tag": "dummy",
+            "settings": {
+                "servers": [
+                {
+                    "address": "127.0.0.1",
+                    "port": 10808
+                }
+                ]
+            }
+            }
+        ],
+        "policy": {
+            "levels": {
+            "8": {
+                "connIdle": 300,
+                "downlinkOnly": 1,
+                "handshake": 4,
+                "uplinkOnly": 1
+            }
+            },
+            "system": {
+            "statsOutboundUplink": true,
+            "statsOutboundDownlink": true
+            }
+        },
+        "routing": {
+            "domainStrategy": "IPIfNonMatch",
+            "rules": [
+            {
+                "inboundTag": [
+                "dns-in"
+                ],
+                "outboundTag": "dns-out",
+                "type": "field"
+            },
+            {
+                "inboundTag": [
+                "socks-in",
+                "http-in"
+                ],
+                "port": 53,
+                "outboundTag": "dns-out",
+                "type": "field"
+            },
+            {
+                "inboundTag": [
+                "socks-in",
+                "http-in"
+                ],
+                "port": "0-65535",
+                "outboundTag": "fragment-out",
+                "type": "field",
+                "enabled": true
+            },
+            {
+                "ip": [
+                "10.10.34.34",
+                "10.10.34.35",
+                "10.10.34.36"
+                ],
+                "outboundTag": "block",
+                "type": "field"
+            }
+            ],
+            "strategy": "rules"
+        },
+        "stats": {}
+        },
+              {
+        "remarks": "ATOMIC-XhTTP-DOH-GFW-resist-via-telegram-proxy",
+        "log": {
+            "loglevel": "none",
+            "access": "",
+            "error": "",
+            "dnsLog": false
+        },
+        "dns": {
+            "disableECS": true,
+            "queryStrategy": "UseIPv4",
+            "tag": "dns",
+            "unexpectedIPs": [
+            "10.10.34.34",
+            "10.10.34.35",
+            "10.10.34.36"
+            ],
+            "hosts": {
+            "www.kirtokhamenei.ir": ["8.8.8.8"],
+                "dns.nextdns.io": ["45.90.30.0","45.90.28.0"],
+                "unfiltered.joindns4.eu": ["86.54.11.200","86.54.11.100"],
+                "ada.openbld.net": ["146.112.41.102","146.112.41.2"],
+                "sky.rethinkdns.com": ["104.18.0.48","8.47.69.0"],
+                "mozilla.cloudflare-dns.com": ["162.159.61.4","172.64.41.4"],
+                "doh.flashstart.com": ["185.236.104.104"],
+                "anti-ban.dynx.pro": ["10.139.177.17"],
+                "dns.quad9.net": ["9.9.9.9","149.112.112.112"]
+            },
+            "servers": [
+            {
+                "address":"https://sky.rethinkdns.com/dns-query",
+                "proxyOutboundTag": "fakeproxy-out"
+                
+            },
+            {
+                "address": "https://mozilla.cloudflare-dns.com/dns-query",
+                "proxyOutboundTag": "fakeproxy-out"
+            },  
+            {
+                "address": "https://dns.nextdns.io", 
+                "proxyOutboundTag": "fakeproxy-out"
+            },
+            {
+                "address": "https://unfiltered.joindns4.eu/dns-query",
+                "proxyOutboundTag": "fakeproxy-out"
+                            
+            },
+            {
+                "address": "https://ada.openbld.net/dns-query",
+                "proxyOutboundTag": "fakeproxy-out",
+                "timeoutMs": 1000
+            },
+            {
+                "address": "https://doh.flashstart.com/f17c9ee5",
+                "proxyOutboundTag": "fakeproxy-out",
+                "timeoutMs": 1500
+            },
+            {
+                "address": "https://dns.quad9.net/dns-query",
+                "proxyOutboundTag": "fakeproxy-out",
+                "domains": [
+                    "geosite:category-ads-all"
+                    ]       
+            },
+            {
+                "address": "https://anti-ban.dynx.pro/dns-query",
+                "proxyOutboundTag": "fakeproxy-out",
+                "timeoutMs": 2000
+            },
+            {
+                "address": "localhost",
+                "domains": ["domain:ir", "geosite:private", "geosite:ir"],
+                "finalQuery": true
+            }
+            ]
+            },
+        "inbounds": [
+            {
+            "listen": "127.0.0.1",
+            "port": 10808,
+            "protocol": "socks",
+            "settings": {
+                "auth": "noauth",
+                "udp": true,
+                "userLevel": 8
+            },
+            "sniffing": {
+                "destOverride": [
+                "http",
+                "tls"
+                ],
+                "enabled": true
+            },
+            "tag": "socks-in"
+            },
+            {
+            "listen": "127.0.0.1",
+            "port": 10809,
+            "protocol": "http",
+            "settings": {
+                "userLevel": 8
+            },
+            "sniffing": {
+                "destOverride": [
+                "http",
+                "tls"
+                ],
+                "enabled": true
+            },
+            "tag": "http-in"
+            },
+            {
+            "port": 10853,
+            "protocol": "dokodemo-door",
+            "settings": {
+                "address": "8.8.8.8",
+                "network": "tcp,udp",
+                "port": 53
+            },
+            "tag": "dns-in"
+            }
+        ],
+        "outbounds": [
+            {
+            "protocol": "freedom",
+            "settings": {
+                "domainStrategy": "UseIPv4",
+                "fragment": {
+                "packets": "1-5",
+                "length": "4-8",
+                "interval": "2-4",
+                "maxSplit": "32-512"
+                },
+                "noises": [
+                    {
+                    "type": "base64",
+                    "packet": "7nQBAAABAAAAAAAACnF0LXN0cmluZwZnb29nbGUDY29tAAABAAE=",
+                    "delay": "10-16",
+                    "applyTo": "ip"
+                    },
+                    {
+                    "type": "rand",
+                    "packet": "10-20",
+                    "delay": "10-16",
+                    "applyTo": "ipv4"
+                    },
+                    {
+                    "type": "str",
+                    "packet": "hiGFW",
+                    "delay": "10-16",
+                    "applyTo": "ipv6"
+                    },
+                    {
+                        "type": "str",
+                        "packet": "GET /favicon.ico HTTP/1.1\r\nHost: www.google.com\r\n\r\n",
+                        "delay": "50-200",
+                        "applyTo": "ip"
+                    }
+                ]
+            },
+            "streamSettings": {
+                "sockopt": {
+                "tcpNoDelay": true,
+                "tcpKeepAliveIdle": 100,
+                "domainStrategy": "UseIP"
+                }
+            },
+            "tag": "fragment-out"
+            },
+            {
+            "protocol": "vless",
+            "tag": "fakeproxy-out",
+            "settings": {
+                "fragment": {
+                    "packets": "2-4",      
+                    "length": "200-800",   
+                    "interval": "5-20",    
+                    "maxSplit": "1000-2000"
+                },
+                "vnext": [
+                {
+                    "address": "google.com",
+                    "port": 443,
+                    "users": [
+                    {
+                        "encryption": "none",
+                        "flow": "",
+                        "id": "UUID",
+                        "level": 8,
+                        "security": "auto"
+                    }
+                    ]
+                }
+                ]
+            },
+            "streamSettings": {
+                "network": "xhttp",
+                "security": "tls",
+                "tlsSettings": {
+                "allowInsecure": false,
+                "alpn": [
+                    "h3,h2,http/1.1"
+                ],
+                "fingerprint": "randomized",
+                "serverName": "google.com",
+                "show": false
+                },
+                "xhttpSettings": {
+                "host": "google.com",
+                "path": "/",
+                "mode": "auto",
+                "extra": {
+                    "xPaddingBytes": "96-254",
+                    "noGRPCHeader": false,
+                    "noSSEHeader": false,
+                    "xmux": {
+                    "maxConcurrency": "16-128",
+                    "maxConnections": 0,
+                    "cMaxReuseTimes": 0,
+                    "hMaxRequestTimes": "300-1000",
+                    "hMaxReusableSecs": "1200-5000",
+                    "hKeepAlivePeriod": 0
+                    }
+                }
+                }
+            },
+            "mux": {
+                "concurrency": 8,
+                "enabled": false
+            }
+            },
+            {
+            "protocol": "socks",
+            "tag": "telegram-proxy",
+            "settings": {
+                "servers": [
+                {
+                    "address": "104.248.197.67",
+                    "port": 1080
+                }
+        ],
+                "fragment": {
+                    "packets": "1-5",
+                    "length": "4-8",
+                    "interval": "2-4",
+                    "maxSplit": "32-512"
+                }
+
+            },
+            "proxySettings": {
+                "tag": "fragment-out"
+            }
+            },
+            {
+            "protocol": "dns",
+            "tag": "dns-out"
+            },
+            {
+            "protocol": "blackhole",
+            "settings": {
+                "response": {
+                "type": "http"
+                }
+            },
+            "tag": "block"
+            },
+            {
+            "protocol": "socks",
+            "tag": "dummy",
+            "settings": {
+                "servers": [
+                {
+                    "address": "127.0.0.1",
+                    "port": 10808
+                }
+                ]
+            }
+            }
+        ],
+        "policy": {
+            "levels": {
+            "8": {
+                "connIdle": 300,
+                "downlinkOnly": 1,
+                "handshake": 4,
+                "uplinkOnly": 1
+            }
+            },
+            "system": {
+            "statsOutboundUplink": true,
+            "statsOutboundDownlink": true
+            }
+        },
+        "routing": {
+            "domainStrategy": "IPIfNonMatch",
+            "rules": [
+            {
+                "inboundTag": [
+                "dns-in"
+                ],
+                "outboundTag": "dns-out",
+                "type": "field"
+            },
+            {
+                "inboundTag": [
+                "socks-in",
+                "http-in"
+                ],
+                "port": 53,
+                "outboundTag": "dns-out",
+                "type": "field"
+            },
+            {
+                "type": "field",
+                "domain": [
+                "geosite:telegram"
+                ],
+                "outboundTag": "telegram-proxy"
+            },
+            {
+                "type": "field",
+                "ip": [
+                "91.108.4.0/22",
+                "91.108.8.0/22",
+                "91.108.12.0/22",
+                "91.108.16.0/22",
+                "91.108.56.0/22",
+                "149.154.160.0/20",
+                "185.76.151.0/24"
+                ],
+                "outboundTag": "telegram-proxy"
+            },
+            {
+                "inboundTag": [
+                "socks-in",
+                "http-in"
+                ],
+                "port": "0-65535",
+                "outboundTag": "fragment-out",
+                "type": "field",
+                "enabled": true
+            },
+            {
+                "ip": [
+                "10.10.34.34",
+                "10.10.34.35",
+                "10.10.34.36"
+                ],
+                "outboundTag": "block",
+                "type": "field"
+            }
+            ],
+            "strategy": "rules"
+        },
+        "stats": {}
         }
-      },
-      "mux": {
-        "concurrency": 8,
-        "enabled": true
-      }
-    },
-    {
-      "protocol": "dns",
-      "tag": "dns-out"
-    },
-    {
-      "protocol": "blackhole",
-      "settings": {
-        "response": {
-          "type": "http"
-        }
-      },
-      "tag": "block"
-    },
-    {
-      "protocol": "socks",
-      "tag": "dummy",
-      "settings": {
-        "servers": [
-          {
-            "address": "127.0.0.1",
-            "port": 10808
-          }
-        ]
-      }
-    }
-  ],
-  "policy": {
-    "levels": {
-      "8": {
-        "connIdle": 300,
-        "downlinkOnly": 1,
-        "handshake": 4,
-        "uplinkOnly": 1
-      }
-    },
-    "system": {
-      "statsOutboundUplink": true,
-      "statsOutboundDownlink": true
-    }
-  },
-  "routing": {
-    "domainStrategy": "IPIfNonMatch",
-    "rules": [
-      {
-        "inboundTag": [
-          "dns-in"
-        ],
-        "outboundTag": "dns-out",
-        "type": "field"
-      },
-      {
-        "inboundTag": [
-          "socks-in",
-          "http-in"
-        ],
-        "port": 53,
-        "outboundTag": "dns-out",
-        "type": "field"
-      },
-      {
-        "inboundTag": [
-          "socks-in",
-          "http-in"
-        ],
-        "port": "0-65535",
-        "outboundTag": "fragment-out",
-        "type": "field",
-        "enabled": true
-      },
-      {
-        "ip": [
-          "10.10.34.34",
-          "10.10.34.35",
-          "10.10.34.36"
-        ],
-        "outboundTag": "block",
-        "type": "field"
-      }
-    ],
-    "strategy": "rules"
-  },
-  "stats": {}
-}
 ]
