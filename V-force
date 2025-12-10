@@ -1343,8 +1343,7 @@
         "address": "https://dns.quad9.net/dns-query",
         "proxyOutboundTag": "fragment-out",
           "domains": [
-            "geosite:category-ads-all",
-            "geosite:category-malware"
+            "geosite:category-ads-all"
             ]       
     },
     {
