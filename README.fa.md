@@ -47,6 +47,26 @@
 
 ---
 
+## 📁 ساختار مخزن
+
+این مخزن به دو روش دسترسی اصلی سازماندهی شده است:
+
+### 🔗 دسترسی سریع (توصیه شده برای کاربران جدید)
+از ساختار سازماندهی شده برای مرور و انتخاب آسان استفاده کنید:
+```
+configs/
+├── regional/           # پیکربندی‌های بهینه‌شده منطقه‌ای
+│   ├── china/         # 🇨🇳 پیکربندی‌های بهینه‌شده چین
+│   ├── iran/          # 🇮🇷 پیکربندی‌های بهینه‌شده ایران  
+│   └── russia/        # 🇷🇺 پیکربندی‌های بهینه‌شده روسیه
+└── general/           # 🌍 پیکربندی‌های عمومی
+```
+
+### 🔄 آدرس‌های قدیمی (برای کاربران فعلی)
+تمام آدرس‌های اشتراک اصلی در دایرکتوری ریشه فعال و پایدار باقی مانده‌اند تا اطمینان حاصل شود که اشتراک‌های موجود بدون وقفه کار می‌کنند.
+
+---
+
 ## 🌟 معرفی
 
 به **GFW-Slayer** خوش آمدید، مجموعه‌ای از پیکربندی‌های بدون سرور که برای فراهم کردن دسترسی نامحدود به اینترنت طراحی شده‌اند. این مخزن توسط **void** (گیت‌هاب: @voidr3aper-anon) ساخته شده و به کاربران در مناطق تحت سانسور مانند چین، ایران و روسیه قدرت می‌دهد تا فایروال‌ها، تحریم‌ها و محدودیت‌ها را دور بزنند. چه با مسدودسازی ابزارهای هوش مصنوعی مانند Grok روبرو باشید یا با کاهش سرعت اینترنت، این پیکربندی‌ها به عنوان سلاحی قدرتمند علیه سانسور عمل می‌کنند و آزادی اطلاعات و اتصال یکپارچه را تضمین می‌کنند.
@@ -84,52 +104,78 @@
 
 در برنامه V2Ray خود، به بخش اشتراک بروید و یک یا چند مورد از این آدرس‌ها را اضافه کنید:
 
+#### 🆕 آدرس‌های توصیه شده (ساختار سازماندهی شده)
 <table dir="rtl">
 <tr>
 <th>🌍 نوع پیکربندی</th>
 <th>📥 لینک اشتراک</th>
 </tr>
 <tr>
-<td><b>پیکربندی‌های جهانی V2Ray</b></td>
+<td><b>🌍 پیکربندی‌های عمومی V2Ray</b></td>
 <td>
 
 ```
-https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-v2ray.json
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/main/configs/general/serverless-v2ray.json
 ```
 
 </td>
 </tr>
 <tr>
-<td><b>🇮🇷 پیکربندی‌های ویژه ایران</b></td>
+<td><b>🔥 پیکربندی‌های پیشرفته V-Force</b></td>
 <td>
 
 ```
-https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-iran-freindly.json
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/main/configs/general/V-force.json
 ```
 
 </td>
 </tr>
 <tr>
-<td><b>🇨🇳 پیکربندی‌های ویژه چین</b></td>
+<td><b>🇮🇷 پیکربندی‌های بهینه‌شده ایران</b></td>
 <td>
 
 ```
-https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-china-friendly.json
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/main/configs/regional/iran/serverless-iran-friendly.json
 ```
 
 </td>
 </tr>
 <tr>
-<td><b>🇷🇺 پیکربندی‌های ویژه روسیه</b></td>
+<td><b>🇨🇳 پیکربندی‌های بهینه‌شده چین</b></td>
 <td>
 
 ```
-https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-russia-friendly.json
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/main/configs/regional/china/serverless-china-friendly.json
+```
+
+</td>
+</tr>
+<tr>
+<td><b>🇷🇺 پیکربندی‌های بهینه‌شده روسیه</b></td>
+<td>
+
+```
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/main/configs/regional/russia/serverless-russia-friendly.json
 ```
 
 </td>
 </tr>
 </table>
+
+#### 🔄 آدرس‌های قدیمی (همچنان فعال)
+برای کاربران فعلی، این آدرس‌های اصلی همچنان کار می‌کنند:
+<details>
+<summary>برای مشاهده آدرس‌های قدیمی کلیک کنید</summary>
+
+```
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-v2ray.json
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-iran-freindly.json
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-china-friendly.json
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-russia-friendly.json
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/V-force.json
+```
+
+</details>
 
 این لینک‌ها به آرایه‌های JSON از پیکربندی‌ها اشاره دارند. برنامه شما چندین پروفایل (مانند "ATOMIC-IR"، "ATOMIC-GLOBAL-Android/windows-only" و غیره) را برای انتخاب وارد خواهد کرد.
 

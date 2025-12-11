@@ -27,11 +27,16 @@
     - [*无服务器 V2Ray 配置，实现无限制的互联网访问*](#无服务器-v2ray-配置实现无限制的互联网访问)
     - [🌐 阅读其他语言 / Read in Other Languages](#-阅读其他语言--read-in-other-languages)
   - [📋 目录](#-目录)
+  - [📁 仓库结构](#-仓库结构)
+    - [🔗 快速访问（推荐新用户使用）](#-快速访问推荐新用户使用)
+    - [🔄 旧版 URL（适用于现有用户）](#-旧版-url适用于现有用户)
   - [🌟 概述](#-概述)
   - [✨ 功能特性](#-功能特性)
   - [📱 使用方法](#-使用方法)
     - [1️⃣ 安装 V2Ray 客户端](#1️⃣-安装-v2ray-客户端)
     - [2️⃣ 添加订阅链接](#2️⃣-添加订阅链接)
+      - [🆕 推荐 URL（有序结构）](#-推荐-url有序结构)
+      - [🔄 旧版 URL（仍然有效）](#-旧版-url仍然有效)
     - [3️⃣ 选择并连接](#3️⃣-选择并连接)
     - [4️⃣ 获得最佳性能的技巧](#4️⃣-获得最佳性能的技巧)
   - [🌐 可以访问哪些网站](#-可以访问哪些网站)
@@ -58,6 +63,26 @@
   - [⚠️ 免责声明](#️-免责声明)
   - [🤝 贡献](#-贡献)
   - [📞 联系方式](#-联系方式)
+
+---
+
+## 📁 仓库结构
+
+此仓库分为两种主要访问方式：
+
+### 🔗 快速访问（推荐新用户使用）
+使用有序结构便于浏览和选择：
+```
+configs/
+├── regional/           # 区域优化配置
+│   ├── china/         # 🇨🇳 中国优化配置
+│   ├── iran/          # 🇮🇷 伊朗优化配置  
+│   └── russia/        # 🇷🇺 俄罗斯优化配置
+└── general/           # 🌍 通用配置
+```
+
+### 🔄 旧版 URL（适用于现有用户）
+所有原始订阅 URL 在根目录中保持活跃和稳定，以确保现有订阅继续正常工作。
 
 ---
 
@@ -98,52 +123,78 @@
 
 在您的 V2Ray 应用中，转到订阅部分并添加以下一个或多个 URL：
 
+#### 🆕 推荐 URL（有序结构）
 <table>
 <tr>
 <th>🌍 配置类型</th>
 <th>📥 订阅链接</th>
 </tr>
 <tr>
-<td><b>全球 V2Ray 配置</b></td>
+<td><b>🌍 通用 V2Ray 配置</b></td>
 <td>
 
 ```
-https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-v2ray.json
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/main/configs/general/serverless-v2ray.json
 ```
 
 </td>
 </tr>
 <tr>
-<td><b>🇮🇷 伊朗专用配置</b></td>
+<td><b>🔥 高级 V-Force 配置</b></td>
 <td>
 
 ```
-https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-iran-freindly.json
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/main/configs/general/V-force.json
 ```
 
 </td>
 </tr>
 <tr>
-<td><b>🇨🇳 中国专用配置</b></td>
+<td><b>🇮🇷 伊朗优化配置</b></td>
 <td>
 
 ```
-https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-china-friendly.json
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/main/configs/regional/iran/serverless-iran-friendly.json
 ```
 
 </td>
 </tr>
 <tr>
-<td><b>🇷🇺 俄罗斯专用配置</b></td>
+<td><b>🇨🇳 中国优化配置</b></td>
 <td>
 
 ```
-https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-russia-friendly.json
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/main/configs/regional/china/serverless-china-friendly.json
+```
+
+</td>
+</tr>
+<tr>
+<td><b>🇷🇺 俄罗斯优化配置</b></td>
+<td>
+
+```
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/main/configs/regional/russia/serverless-russia-friendly.json
 ```
 
 </td>
 </tr>
 </table>
+
+#### 🔄 旧版 URL（仍然有效）
+对于现有用户，这些原始 URL 继续工作：
+<details>
+<summary>点击展开旧版 URL</summary>
+
+```
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-v2ray.json
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-iran-freindly.json
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-china-friendly.json
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-russia-friendly.json
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/V-force.json
+```
+
+</details>
 
 这些链接指向配置的 JSON 数组。您的应用将导入多个配置文件（例如 "ATOMIC-IR"、"ATOMIC-GLOBAL-Android/windows-only" 等）供您选择。
 
