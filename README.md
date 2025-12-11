@@ -28,6 +28,7 @@
   - [📋 Table of Contents](#-table-of-contents)
   - [🌟 Overview](#-overview)
   - [✨ Features](#-features)
+  - [📁 Repository Structure](#-repository-structure)
   - [📱 How to Use](#-how-to-use)
     - [1️⃣ Install a V2Ray Client](#1️⃣-install-a-v2ray-client)
     - [2️⃣ Add Subscription Links](#2️⃣-add-subscription-links)
@@ -63,6 +64,26 @@ These configurations leverage advanced techniques such as **JA3 and JA4 jamming*
 
 ---
 
+## 📁 Repository Structure
+
+This repository is organized into two main access methods:
+
+### 🔗 Quick Access (Recommended for New Users)
+Use the organized structure for easy browsing and selection:
+```
+configs/
+├── regional/           # Region-specific optimized configurations
+│   ├── china/         # 🇨🇳 China-optimized configs
+│   ├── iran/          # 🇮🇷 Iran-optimized configs  
+│   └── russia/        # 🇷🇺 Russia-optimized configs
+└── general/           # 🌍 General-purpose configurations
+```
+
+### 🔄 Legacy URLs (For Existing Users)
+All original subscription URLs remain active and stable in the root directory to ensure existing subscriptions continue working without interruption.
+
+---
+
 ## ✨ Features
 
 - 🎯 **Serverless Setup**: No need for your own servers; these configs work out-of-the-box with public resources.
@@ -91,52 +112,78 @@ These configs are designed for V2Ray-compatible clients (e.g., V2RayNG on Androi
 
 In your V2Ray app, go to the subscription section and add one or more of these URLs:
 
+#### 🆕 Recommended URLs (Organized Structure)
 <table>
 <tr>
 <th>🌍 Config Type</th>
 <th>📥 Subscription URL</th>
 </tr>
 <tr>
-<td><b>Global V2Ray Configs</b></td>
+<td><b>🌍 General V2Ray Configs</b></td>
 <td>
 
 ```
-https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-v2ray.json
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/main/configs/general/serverless-v2ray.json
 ```
 
 </td>
 </tr>
 <tr>
-<td><b>🇮🇷 Iran-Friendly Configs</b></td>
+<td><b>🔥 Advanced V-Force Configs</b></td>
 <td>
 
 ```
-https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-iran-freindly.json
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/main/configs/general/V-force.json
 ```
 
 </td>
 </tr>
 <tr>
-<td><b>🇨🇳 China-Friendly Configs</b></td>
+<td><b>🇮🇷 Iran-Optimized Configs</b></td>
 <td>
 
 ```
-https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-china-friendly.json
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/main/configs/regional/iran/serverless-iran-friendly.json
 ```
 
 </td>
 </tr>
 <tr>
-<td><b>🇷🇺 Russia-Friendly Configs</b></td>
+<td><b>🇨🇳 China-Optimized Configs</b></td>
 <td>
 
 ```
-https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-russia-friendly.json
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/main/configs/regional/china/serverless-china-friendly.json
+```
+
+</td>
+</tr>
+<tr>
+<td><b>🇷🇺 Russia-Optimized Configs</b></td>
+<td>
+
+```
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/main/configs/regional/russia/serverless-russia-friendly.json
 ```
 
 </td>
 </tr>
 </table>
+
+#### 🔄 Legacy URLs (Still Active)
+For existing users, these original URLs continue to work:
+<details>
+<summary>Click to expand legacy URLs</summary>
+
+```
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-v2ray.json
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-iran-freindly.json
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-china-friendly.json
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/serverless-russia-friendly.json
+https://raw.githubusercontent.com/voidr3aper-anon/GFW-slayer/refs/heads/main/V-force.json
+```
+
+</details>
 
 These links point to JSON arrays of configurations. Your app will import multiple profiles (e.g., "ATOMIC-IR", "ATOMIC-GLOBAL-Android/windows-only", etc.) for you to select from.
 
@@ -201,35 +248,48 @@ Below is a quick guide to what typically works (and what doesn’t) when you use
 ## 📦 Config Details
 ---
 
-This repo includes **four main configuration files**, each optimized for different regions and use cases:
+This repo includes **five main configuration files**, each optimized for different regions and use cases:
 
 <table>
 <tr>
 <th>📄 Config File</th>
 <th>🎯 Target Region</th>
 <th>⚡ Key Features</th>
+<th>📁 Location</th>
 </tr>
 <tr>
 <td><code>serverless-v2ray.json</code></td>
 <td>🌍 Global</td>
 <td>Contains advanced configs like "ATOMIC-IR", "ATOMIC-GLOBAL-Android/windows-only", "ATOMIC-XhTTP-new-era", "ATOMIC-XhTTP-DOH", and "ATOMIC-Force". Ideal for worldwide use with strong anti-censorship features.</td>
+<td><code>configs/general/</code></td>
 </tr>
 <tr>
-<td><code>serverless-iran-freindly.json</code></td>
+<td><code>V-force.json</code></td>
+<td>🌍 Advanced</td>
+<td>Premium configuration with DoH (DNS over HTTPS), multiple DNS providers for redundancy, enhanced security and privacy features. Most advanced setup available.</td>
+<td><code>configs/general/</code></td>
+</tr>
+<tr>
+<td><code>serverless-iran-friendly.json</code></td>
 <td>🇮🇷 Iran</td>
-<td>Tailored for Iran, with profiles like "ATOMIC-iran" and "ATOMIC-iran-DOH". Includes Iran-specific routing (e.g., direct access to .ir domains) and DOH for secure DNS.</td>
+<td>Tailored for Iran, with profiles like "ATOMIC-iran" and "ATOMIC-iran-DOH". Includes Iran-specific routing (e.g., direct access to .ir domains) and DoH for secure DNS.</td>
+<td><code>configs/regional/iran/</code></td>
 </tr>
 <tr>
 <td><code>serverless-china-friendly.json</code></td>
 <td>🇨🇳 China</td>
 <td>Designed for China, with profiles like "ATOMIC-china" and "ATOMIC-china-DOH". Routes .cn domains and IPs directly while fragmenting international traffic.</td>
+<td><code>configs/regional/china/</code></td>
 </tr>
 <tr>
 <td><code>serverless-russia-friendly.json</code></td>
 <td>🇷🇺 Russia</td>
 <td>Optimized for Russia, with profiles like "ATOMIC-russia" and "ATOMIC-russia-DOH". Routes .ru domains and IPs directly for better performance.</td>
+<td><code>configs/regional/russia/</code></td>
 </tr>
 </table>
+
+> **📌 Note**: All configurations are available in both the organized structure (`configs/`) and as legacy files in the root directory for backward compatibility.
 
 ### 🔐 Technical Details
 
