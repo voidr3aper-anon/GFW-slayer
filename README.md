@@ -11,7 +11,18 @@
 [![GitHub Forks](https://img.shields.io/github/forks/voidr3aper-anon/GFW-slayer?style=social)](https://github.com/voidr3aper-anon/GFW-slayer/network/members)
 [![Last Commit](https://img.shields.io/github/last-commit/voidr3aper-anon/GFW-slayer)](https://github.com/voidr3aper-anon/GFW-slayer/commits/main)
 
+
+**Maintainer**: [voidreaper](https://github.com/voidr3aper-anon)
+
+**ResearchHead**: atomic_anon
+
+**Check out the telegram channel**: 📱 [@VoidVerge](https://t.me/VoidVerge)
+
+
+
 ---
+
+
 
 ### 🌐 Read in Other Languages / خواندن به زبان‌های دیگر / Читать на других языках / 阅读其他语言
 
