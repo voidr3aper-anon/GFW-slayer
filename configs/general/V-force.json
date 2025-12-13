@@ -1359,7 +1359,7 @@
             },
             {
                 "address": "localhost",
-                "domains": ["domain:ir", "geosite:private", "geosite:ir"],
+                "domains": ["domain:ir", "geosite:private"],
                 "finalQuery": true
             }
             ]
@@ -1667,7 +1667,7 @@
             },
             {
                 "address": "localhost",
-                "domains": ["domain:ir", "geosite:private", "geosite:ir"],
+                "domains": ["domain:ir", "geosite:private"],
                 "finalQuery": true
             }
             ]
@@ -1981,7 +1981,7 @@
             },
             {
                 "address": "localhost",
-                "domains": ["domain:ir", "geosite:private", "geosite:ir"],
+                "domains": ["domain:ir", "geosite:private"],
                 "finalQuery": true
             }
             ]
