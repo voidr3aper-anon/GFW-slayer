@@ -780,7 +780,7 @@
         }
     },
     {
-      "remarks": "THIVOID-ROBUST-SERVERLESS-EMERGENCY-FAST",
+      "remarks": "THIVOID-ROBUST-SERVERLESS-EMERGENCY-FAST-hamrah🔵",
       "log": {
         "loglevel": "warning",
         "dnsLog": false
@@ -1113,5 +1113,302 @@
           }
         ]
       }
-    }
+    },
+    {
+      "remarks": "THIVOID-ROBUST-SERVERLESS-EMERGENCY-fast-irancell🟡",
+      "log": {
+        "loglevel": "debug",
+        "dnsLog": true
+      },
+      "dns": {
+        "disableECS": true,
+        "queryStrategy": "UseIPv4",
+        "tag": "dns",
+        "disableCache": false,
+        "serveStale": true,
+        "serveExpiredTTL": 3600,
+        "disableFallback": false,
+        "disableFallbackIfMatch": true,
+        "enableParallelQuery": true,
+        "useSystemHosts": false,
+        "hosts": {
+          "cloudflare-dns.com": [
+            "104.16.248.249",
+            "104.16.133.229"
+          ],
+          "sky.rethinkdns.com": [
+            "104.18.0.48",
+            "8.47.69.0"
+          ],
+    	  "sky.rethinkdns.com": [
+            "86.54.11.100",
+            "86.54.11.200"
+          ]
+        },
+        "servers": [
+          {
+            "address": "https://cloudflare-dns.com/dns-query",
+            "proxyOutboundTag": "dns-frag-out"
+          },
+          {
+            "address": "https://sky.rethinkdns.com/dns-query",
+            "proxyOutboundTag": "dns-frag-out"
+          },
+          {
+            "address": "https://unfiltered.joindns4.eu/dns-query",
+            "proxyOutboundTag": "dns-frag-out"
+          },	  
+          {
+            "address": "h2c://1.1.1.1/dns-query",
+            "proxyOutboundTag": "doh-wrap-frag-out",
+            "skipFallback": true,
+            "timeoutMs": 1200
+          },
+          "tcp://1.1.1.1:53",
+          "tcp://9.9.9.9:53"
+        ]
+      },
+      "inbounds": [
+        {
+          "listen": "127.0.0.1",
+          "port": 10808,
+          "protocol": "socks",
+          "settings": {
+            "auth": "noauth",
+            "udp": true,
+            "userLevel": 8
+          },
+          "sniffing": {
+            "enabled": true,
+            "destOverride": [
+              "http",
+              "tls",
+              "quic"
+            ],
+            "metadataOnly": true,
+            "routeOnly": true
+          },
+          "tag": "socks-in"
+        },
+        {
+          "listen": "127.0.0.1",
+          "port": 10809,
+          "protocol": "http",
+          "settings": {
+            "userLevel": 8
+          },
+          "sniffing": {
+            "enabled": true,
+            "destOverride": [
+              "http",
+              "tls",
+              "quic"
+            ],
+            "metadataOnly": true,
+            "routeOnly": true
+          },
+          "tag": "http-in"
+        },
+        {
+          "port": 10853,
+          "protocol": "dokodemo-door",
+          "settings": {
+            "address": "8.8.8.8",
+            "network": "tcp,udp",
+            "port": 53
+          },
+          "tag": "dns-in"
+        }
+      ],
+      "outbounds": [
+        {
+          "protocol": "freedom",
+          "tag": "frag-out",
+          "settings": {
+            "domainStrategy": "AsIs",
+            "fragment": {
+              "packets": "1-5",
+              "length": "1-9",
+              "interval": "0-6"
+            }
+          },
+          "streamSettings": {
+            "sockopt": {
+              "domainStrategy": "UseIPv4",
+              "tcpNoDelay": true,
+              "tcpKeepAliveIdle": 45,
+              "tcpKeepAliveInterval": 45,
+              "tcpUserTimeout": 12000
+            }
+          }
+        },
+        {
+          "protocol": "freedom",
+          "tag": "dns-frag-out",
+          "settings": {
+            "domainStrategy": "AsIs",
+            "fragment": {
+              "packets": "1-5",
+              "length": "1-9",
+              "interval": "0-5"
+            }
+          },
+          "streamSettings": {
+            "sockopt": {
+              "domainStrategy": "UseIPv4",
+              "tcpNoDelay": true,
+              "tcpKeepAliveIdle": 45,
+              "tcpKeepAliveInterval": 45,
+              "tcpUserTimeout": 12000
+            }
+          }
+        },
+        {
+          "protocol": "freedom",
+          "tag": "dot-frag-out",
+          "settings": {
+            "domainStrategy": "AsIs",
+            "fragment": {
+              "packets": "1-5",
+              "length": "1-9",
+              "interval": "0-8"
+            }
+          },
+          "streamSettings": {
+            "sockopt": {
+              "domainStrategy": "UseIPv4",
+              "tcpNoDelay": true,
+              "tcpKeepAliveIdle": 45,
+              "tcpKeepAliveInterval": 45,
+              "tcpUserTimeout": 15000
+            }
+          }
+        },
+        {
+          "protocol": "freedom",
+          "tag": "direct-out",
+          "settings": {
+            "domainStrategy": "AsIs"
+          },
+          "streamSettings": {
+            "sockopt": {
+              "domainStrategy": "UseIPv4",
+              "tcpNoDelay": true,
+              "tcpKeepAliveIdle": 45,
+              "tcpKeepAliveInterval": 45,
+              "tcpUserTimeout": 12000
+            }
+          }
+        },
+        {
+          "protocol": "socks",
+          "tag": "telegram-proxy",
+          "settings": {
+            "servers": [
+              {
+                "address": "104.248.197.67",
+                "port": 1080
+              }
+            ]
+          },
+          "proxySettings": {
+            "tag": "frag-out"
+          }
+        },
+        {
+          "protocol": "dns",
+          "tag": "dns-out"
+        },
+        {
+          "protocol": "blackhole",
+          "tag": "block",
+          "settings": {
+            "response": {
+              "type": "http"
+            }
+          }
+        }
+      ],
+      "policy": {
+        "levels": {
+          "8": {
+            "connIdle": 600,
+            "handshake": 12,
+            "uplinkOnly": 1,
+            "downlinkOnly": 1
+          }
+        }
+      },
+      "routing": {
+        "domainStrategy": "IPIfNonMatch",
+        "rules": [
+          {
+            "type": "field",
+            "inboundTag": [
+              "socks-in",
+              "http-in"
+            ],
+            "network": "udp",
+            "port": 443,
+            "outboundTag": "block"
+          },
+          {
+            "type": "field",
+            "inboundTag": [
+              "dns-in"
+            ],
+            "outboundTag": "dns-out"
+          },
+          {
+            "type": "field",
+            "inboundTag": [
+              "socks-in",
+              "http-in"
+            ],
+            "port": 53,
+            "outboundTag": "dns-out"
+          },
+          {
+            "type": "field",
+            "inboundTag": [
+              "socks-in",
+              "http-in"
+            ],
+            "network": "tcp",
+            "port": 853,
+            "outboundTag": "dot-frag-out"
+          },
+          {
+            "type": "field",
+            "domain": [
+              "geosite:telegram"
+            ],
+            "outboundTag": "telegram-proxy"
+          },
+          {
+            "type": "field",
+            "domain": [
+              "domain:ir"
+            ],
+            "outboundTag": "direct-out"
+          },
+          {
+            "type": "field",
+            "ip": [
+              "geoip:ir",
+              "geoip:private"
+            ],
+            "outboundTag": "direct-out"
+          },
+          {
+            "type": "field",
+            "inboundTag": [
+              "socks-in",
+              "http-in"
+            ],
+            "outboundTag": "frag-out"
+          }
+        ]
+  }
+}
 ]
