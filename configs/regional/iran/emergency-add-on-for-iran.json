@@ -1117,8 +1117,8 @@
     {
       "remarks": "THIVOID-ROBUST-SERVERLESS-EMERGENCY-fast-irancell🟡",
       "log": {
-        "loglevel": "debug",
-        "dnsLog": true
+        "loglevel": "warning",
+        "dnsLog": false
       },
       "dns": {
         "disableECS": true,
