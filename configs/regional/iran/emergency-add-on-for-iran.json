@@ -1269,7 +1269,7 @@
           "settings": {
             "domainStrategy": "AsIs",
             "fragment": {
-              "packets": "1-5",
+              "packets": "1-1",
               "length": "1-9",
               "interval": "0-8"
             }
